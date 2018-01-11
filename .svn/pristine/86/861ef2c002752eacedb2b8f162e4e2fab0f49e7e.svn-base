@@ -1,0 +1,834 @@
+package domain;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Embeddable;
+
+@Embeddable
+@Access(AccessType.PROPERTY)
+public class Tipo3FormularioTres {
+
+	// Constructors -----------------------------------------------------------
+
+	public Tipo3FormularioTres() {
+		super();
+	}
+
+	// Attributes -------------------------------------------------------------
+
+	private Integer a311;
+	private Integer a312;
+	private Integer a313;
+	private Integer a314;
+	private Integer a315;
+	private Integer a316;
+	private Integer a32011;
+	private Integer a32012;
+	private Integer a32013;
+	private Integer a32014;
+	private Integer a32015;
+	private Integer a32016;
+	private Integer a32021;
+	private Integer a32022;
+	private Integer a32023;
+	private Integer a32024;
+	private Integer a32025;
+	private Integer a32026;
+	private Integer a32031;
+	private Integer a32032;
+	private Integer a32033;
+	private Integer a32034;
+	private Integer a32035;
+	private Integer a32036;
+	private Integer a32041;
+	private Integer a32042;
+	private Integer a32043;
+	private Integer a32044;
+	private Integer a32045;
+	private Integer a32046;
+	private Integer a32051;
+	private Integer a32052;
+	private Integer a32053;
+	private Integer a32054;
+	private Integer a32055;
+	private Integer a32056;
+	private Integer a32061;
+	private Integer a32062;
+	private Integer a32063;
+	private Integer a32064;
+	private Integer a32065;
+	private Integer a32066;
+	private Integer a32071;
+	private Integer a32072;
+	private Integer a32073;
+	private Integer a32074;
+	private Integer a32075;
+	private Integer a32076;
+	private Integer a32081;
+	private Integer a32082;
+	private Integer a32083;
+	private Integer a32084;
+	private Integer a32085;
+	private Integer a32086;
+	private Integer a32091;
+	private Integer a32092;
+	private Integer a32093;
+	private Integer a32094;
+	private Integer a32095;
+	private Integer a32096;
+	private Integer a32101;
+	private Integer a32102;
+	private Integer a32103;
+	private Integer a32104;
+	private Integer a32105;
+	private Integer a32106;
+	private Integer a32111;
+	private Integer a32112;
+	private Integer a32113;
+	private Integer a32114;
+	private Integer a32115;
+	private Integer a32116;
+	private Integer a32121;
+	private Integer a32122;
+	private Integer a32123;
+	private Integer a32124;
+	private Integer a32125;
+	private Integer a32126;
+	private Integer a32131;
+	private Integer a32132;
+	private Integer a32133;
+	private Integer a32134;
+	private Integer a32135;
+	private Integer a32136;
+	private Integer a32141;
+	private Integer a32142;
+	private Integer a32143;
+	private Integer a32144;
+	private Integer a32145;
+	private Integer a32146;
+	private Integer a32151;
+	private Integer a32152;
+	private Integer a32153;
+	private Integer a32154;
+	private Integer a32155;
+	private Integer a32156;
+	private Integer a32161;
+	private Integer a32162;
+	private Integer a32163;
+	private Integer a32164;
+	private Integer a32165;
+	private Integer a32166;
+	private String eOtros;
+	private String eCodOtros;
+	private Integer a32171;
+	private Integer a32172;
+	private Integer a32173;
+	private Integer a32174;
+	private Integer a32175;
+	private Integer a32176;
+	private Integer a331;
+	private Integer a332;
+	private Integer a333;
+	private Integer a334;
+	private Integer a335;
+	private Integer a336;
+	public Integer getA311() {
+		return a311;
+	}
+	public void setA311(Integer a311) {
+		this.a311 = a311;
+	}
+	public Integer getA312() {
+		return a312;
+	}
+	public void setA312(Integer a312) {
+		this.a312 = a312;
+	}
+	public Integer getA313() {
+		return a313;
+	}
+	public void setA313(Integer a313) {
+		this.a313 = a313;
+	}
+	public Integer getA314() {
+		return a314;
+	}
+	public void setA314(Integer a314) {
+		this.a314 = a314;
+	}
+	public Integer getA315() {
+		return a315;
+	}
+	public void setA315(Integer a315) {
+		this.a315 = a315;
+	}
+	public Integer getA316() {
+		return a316;
+	}
+	public void setA316(Integer a316) {
+		this.a316 = a316;
+	}
+	public Integer getA32011() {
+		return a32011;
+	}
+	public void setA32011(Integer a32011) {
+		this.a32011 = a32011;
+	}
+	public Integer getA32012() {
+		return a32012;
+	}
+	public void setA32012(Integer a32012) {
+		this.a32012 = a32012;
+	}
+	public Integer getA32013() {
+		return a32013;
+	}
+	public void setA32013(Integer a32013) {
+		this.a32013 = a32013;
+	}
+	public Integer getA32014() {
+		return a32014;
+	}
+	public void setA32014(Integer a32014) {
+		this.a32014 = a32014;
+	}
+	public Integer getA32015() {
+		return a32015;
+	}
+	public void setA32015(Integer a32015) {
+		this.a32015 = a32015;
+	}
+	public Integer getA32016() {
+		return a32016;
+	}
+	public void setA32016(Integer a32016) {
+		this.a32016 = a32016;
+	}
+	public Integer getA32021() {
+		return a32021;
+	}
+	public void setA32021(Integer a32021) {
+		this.a32021 = a32021;
+	}
+	public Integer getA32022() {
+		return a32022;
+	}
+	public void setA32022(Integer a32022) {
+		this.a32022 = a32022;
+	}
+	public Integer getA32023() {
+		return a32023;
+	}
+	public void setA32023(Integer a32023) {
+		this.a32023 = a32023;
+	}
+	public Integer getA32024() {
+		return a32024;
+	}
+	public void setA32024(Integer a32024) {
+		this.a32024 = a32024;
+	}
+	public Integer getA32025() {
+		return a32025;
+	}
+	public void setA32025(Integer a32025) {
+		this.a32025 = a32025;
+	}
+	public Integer getA32026() {
+		return a32026;
+	}
+	public void setA32026(Integer a32026) {
+		this.a32026 = a32026;
+	}
+	public Integer getA32031() {
+		return a32031;
+	}
+	public void setA32031(Integer a32031) {
+		this.a32031 = a32031;
+	}
+	public Integer getA32032() {
+		return a32032;
+	}
+	public void setA32032(Integer a32032) {
+		this.a32032 = a32032;
+	}
+	public Integer getA32033() {
+		return a32033;
+	}
+	public void setA32033(Integer a32033) {
+		this.a32033 = a32033;
+	}
+	public Integer getA32034() {
+		return a32034;
+	}
+	public void setA32034(Integer a32034) {
+		this.a32034 = a32034;
+	}
+	public Integer getA32035() {
+		return a32035;
+	}
+	public void setA32035(Integer a32035) {
+		this.a32035 = a32035;
+	}
+	public Integer getA32036() {
+		return a32036;
+	}
+	public void setA32036(Integer a32036) {
+		this.a32036 = a32036;
+	}
+	public Integer getA32041() {
+		return a32041;
+	}
+	public void setA32041(Integer a32041) {
+		this.a32041 = a32041;
+	}
+	public Integer getA32042() {
+		return a32042;
+	}
+	public void setA32042(Integer a32042) {
+		this.a32042 = a32042;
+	}
+	public Integer getA32043() {
+		return a32043;
+	}
+	public void setA32043(Integer a32043) {
+		this.a32043 = a32043;
+	}
+	public Integer getA32044() {
+		return a32044;
+	}
+	public void setA32044(Integer a32044) {
+		this.a32044 = a32044;
+	}
+	public Integer getA32045() {
+		return a32045;
+	}
+	public void setA32045(Integer a32045) {
+		this.a32045 = a32045;
+	}
+	public Integer getA32046() {
+		return a32046;
+	}
+	public void setA32046(Integer a32046) {
+		this.a32046 = a32046;
+	}
+	public Integer getA32051() {
+		return a32051;
+	}
+	public void setA32051(Integer a32051) {
+		this.a32051 = a32051;
+	}
+	public Integer getA32052() {
+		return a32052;
+	}
+	public void setA32052(Integer a32052) {
+		this.a32052 = a32052;
+	}
+	public Integer getA32053() {
+		return a32053;
+	}
+	public void setA32053(Integer a32053) {
+		this.a32053 = a32053;
+	}
+	public Integer getA32054() {
+		return a32054;
+	}
+	public void setA32054(Integer a32054) {
+		this.a32054 = a32054;
+	}
+	public Integer getA32055() {
+		return a32055;
+	}
+	public void setA32055(Integer a32055) {
+		this.a32055 = a32055;
+	}
+	public Integer getA32056() {
+		return a32056;
+	}
+	public void setA32056(Integer a32056) {
+		this.a32056 = a32056;
+	}
+	public Integer getA32061() {
+		return a32061;
+	}
+	public void setA32061(Integer a32061) {
+		this.a32061 = a32061;
+	}
+	public Integer getA32062() {
+		return a32062;
+	}
+	public void setA32062(Integer a32062) {
+		this.a32062 = a32062;
+	}
+	public Integer getA32063() {
+		return a32063;
+	}
+	public void setA32063(Integer a32063) {
+		this.a32063 = a32063;
+	}
+	public Integer getA32064() {
+		return a32064;
+	}
+	public void setA32064(Integer a32064) {
+		this.a32064 = a32064;
+	}
+	public Integer getA32065() {
+		return a32065;
+	}
+	public void setA32065(Integer a32065) {
+		this.a32065 = a32065;
+	}
+	public Integer getA32066() {
+		return a32066;
+	}
+	public void setA32066(Integer a32066) {
+		this.a32066 = a32066;
+	}
+	public Integer getA32071() {
+		return a32071;
+	}
+	public void setA32071(Integer a32071) {
+		this.a32071 = a32071;
+	}
+	public Integer getA32072() {
+		return a32072;
+	}
+	public void setA32072(Integer a32072) {
+		this.a32072 = a32072;
+	}
+	public Integer getA32073() {
+		return a32073;
+	}
+	public void setA32073(Integer a32073) {
+		this.a32073 = a32073;
+	}
+	public Integer getA32074() {
+		return a32074;
+	}
+	public void setA32074(Integer a32074) {
+		this.a32074 = a32074;
+	}
+	public Integer getA32075() {
+		return a32075;
+	}
+	public void setA32075(Integer a32075) {
+		this.a32075 = a32075;
+	}
+	public Integer getA32076() {
+		return a32076;
+	}
+	public void setA32076(Integer a32076) {
+		this.a32076 = a32076;
+	}
+	public Integer getA32081() {
+		return a32081;
+	}
+	public void setA32081(Integer a32081) {
+		this.a32081 = a32081;
+	}
+	public Integer getA32082() {
+		return a32082;
+	}
+	public void setA32082(Integer a32082) {
+		this.a32082 = a32082;
+	}
+	public Integer getA32083() {
+		return a32083;
+	}
+	public void setA32083(Integer a32083) {
+		this.a32083 = a32083;
+	}
+	public Integer getA32084() {
+		return a32084;
+	}
+	public void setA32084(Integer a32084) {
+		this.a32084 = a32084;
+	}
+	public Integer getA32085() {
+		return a32085;
+	}
+	public void setA32085(Integer a32085) {
+		this.a32085 = a32085;
+	}
+	public Integer getA32086() {
+		return a32086;
+	}
+	public void setA32086(Integer a32086) {
+		this.a32086 = a32086;
+	}
+	public Integer getA32091() {
+		return a32091;
+	}
+	public void setA32091(Integer a32091) {
+		this.a32091 = a32091;
+	}
+	public Integer getA32092() {
+		return a32092;
+	}
+	public void setA32092(Integer a32092) {
+		this.a32092 = a32092;
+	}
+	public Integer getA32093() {
+		return a32093;
+	}
+	public void setA32093(Integer a32093) {
+		this.a32093 = a32093;
+	}
+	public Integer getA32094() {
+		return a32094;
+	}
+	public void setA32094(Integer a32094) {
+		this.a32094 = a32094;
+	}
+	public Integer getA32095() {
+		return a32095;
+	}
+	public void setA32095(Integer a32095) {
+		this.a32095 = a32095;
+	}
+	public Integer getA32096() {
+		return a32096;
+	}
+	public void setA32096(Integer a32096) {
+		this.a32096 = a32096;
+	}
+	public Integer getA32101() {
+		return a32101;
+	}
+	public void setA32101(Integer a32101) {
+		this.a32101 = a32101;
+	}
+	public Integer getA32102() {
+		return a32102;
+	}
+	public void setA32102(Integer a32102) {
+		this.a32102 = a32102;
+	}
+	public Integer getA32103() {
+		return a32103;
+	}
+	public void setA32103(Integer a32103) {
+		this.a32103 = a32103;
+	}
+	public Integer getA32104() {
+		return a32104;
+	}
+	public void setA32104(Integer a32104) {
+		this.a32104 = a32104;
+	}
+	public Integer getA32105() {
+		return a32105;
+	}
+	public void setA32105(Integer a32105) {
+		this.a32105 = a32105;
+	}
+	public Integer getA32106() {
+		return a32106;
+	}
+	public void setA32106(Integer a32106) {
+		this.a32106 = a32106;
+	}
+	public Integer getA32111() {
+		return a32111;
+	}
+	public void setA32111(Integer a32111) {
+		this.a32111 = a32111;
+	}
+	public Integer getA32112() {
+		return a32112;
+	}
+	public void setA32112(Integer a32112) {
+		this.a32112 = a32112;
+	}
+	public Integer getA32113() {
+		return a32113;
+	}
+	public void setA32113(Integer a32113) {
+		this.a32113 = a32113;
+	}
+	public Integer getA32114() {
+		return a32114;
+	}
+	public void setA32114(Integer a32114) {
+		this.a32114 = a32114;
+	}
+	public Integer getA32115() {
+		return a32115;
+	}
+	public void setA32115(Integer a32115) {
+		this.a32115 = a32115;
+	}
+	public Integer getA32116() {
+		return a32116;
+	}
+	public void setA32116(Integer a32116) {
+		this.a32116 = a32116;
+	}
+	public Integer getA32121() {
+		return a32121;
+	}
+	public void setA32121(Integer a32121) {
+		this.a32121 = a32121;
+	}
+	public Integer getA32122() {
+		return a32122;
+	}
+	public void setA32122(Integer a32122) {
+		this.a32122 = a32122;
+	}
+	public Integer getA32123() {
+		return a32123;
+	}
+	public void setA32123(Integer a32123) {
+		this.a32123 = a32123;
+	}
+	public Integer getA32124() {
+		return a32124;
+	}
+	public void setA32124(Integer a32124) {
+		this.a32124 = a32124;
+	}
+	public Integer getA32125() {
+		return a32125;
+	}
+	public void setA32125(Integer a32125) {
+		this.a32125 = a32125;
+	}
+	public Integer getA32126() {
+		return a32126;
+	}
+	public void setA32126(Integer a32126) {
+		this.a32126 = a32126;
+	}
+	public Integer getA32131() {
+		return a32131;
+	}
+	public void setA32131(Integer a32131) {
+		this.a32131 = a32131;
+	}
+	public Integer getA32132() {
+		return a32132;
+	}
+	public void setA32132(Integer a32132) {
+		this.a32132 = a32132;
+	}
+	public Integer getA32133() {
+		return a32133;
+	}
+	public void setA32133(Integer a32133) {
+		this.a32133 = a32133;
+	}
+	public Integer getA32134() {
+		return a32134;
+	}
+	public void setA32134(Integer a32134) {
+		this.a32134 = a32134;
+	}
+	public Integer getA32135() {
+		return a32135;
+	}
+	public void setA32135(Integer a32135) {
+		this.a32135 = a32135;
+	}
+	public Integer getA32136() {
+		return a32136;
+	}
+	public void setA32136(Integer a32136) {
+		this.a32136 = a32136;
+	}
+	public Integer getA32141() {
+		return a32141;
+	}
+	public void setA32141(Integer a32141) {
+		this.a32141 = a32141;
+	}
+	public Integer getA32142() {
+		return a32142;
+	}
+	public void setA32142(Integer a32142) {
+		this.a32142 = a32142;
+	}
+	public Integer getA32143() {
+		return a32143;
+	}
+	public void setA32143(Integer a32143) {
+		this.a32143 = a32143;
+	}
+	public Integer getA32144() {
+		return a32144;
+	}
+	public void setA32144(Integer a32144) {
+		this.a32144 = a32144;
+	}
+	public Integer getA32145() {
+		return a32145;
+	}
+	public void setA32145(Integer a32145) {
+		this.a32145 = a32145;
+	}
+	public Integer getA32146() {
+		return a32146;
+	}
+	public void setA32146(Integer a32146) {
+		this.a32146 = a32146;
+	}
+	public Integer getA32151() {
+		return a32151;
+	}
+	public void setA32151(Integer a32151) {
+		this.a32151 = a32151;
+	}
+	public Integer getA32152() {
+		return a32152;
+	}
+	public void setA32152(Integer a32152) {
+		this.a32152 = a32152;
+	}
+	public Integer getA32153() {
+		return a32153;
+	}
+	public void setA32153(Integer a32153) {
+		this.a32153 = a32153;
+	}
+	public Integer getA32154() {
+		return a32154;
+	}
+	public void setA32154(Integer a32154) {
+		this.a32154 = a32154;
+	}
+	public Integer getA32155() {
+		return a32155;
+	}
+	public void setA32155(Integer a32155) {
+		this.a32155 = a32155;
+	}
+	public Integer getA32156() {
+		return a32156;
+	}
+	public void setA32156(Integer a32156) {
+		this.a32156 = a32156;
+	}
+	public Integer getA32161() {
+		return a32161;
+	}
+	public void setA32161(Integer a32161) {
+		this.a32161 = a32161;
+	}
+	public Integer getA32162() {
+		return a32162;
+	}
+	public void setA32162(Integer a32162) {
+		this.a32162 = a32162;
+	}
+	public Integer getA32163() {
+		return a32163;
+	}
+	public void setA32163(Integer a32163) {
+		this.a32163 = a32163;
+	}
+	public Integer getA32164() {
+		return a32164;
+	}
+	public void setA32164(Integer a32164) {
+		this.a32164 = a32164;
+	}
+	public Integer getA32165() {
+		return a32165;
+	}
+	public void setA32165(Integer a32165) {
+		this.a32165 = a32165;
+	}
+	public Integer getA32166() {
+		return a32166;
+	}
+	public void setA32166(Integer a32166) {
+		this.a32166 = a32166;
+	}
+	public String geteOtros() {
+		return eOtros;
+	}
+	public void seteOtros(String eOtros) {
+		this.eOtros = eOtros;
+	}
+	public String geteCodOtros() {
+		return eCodOtros;
+	}
+	public void seteCodOtros(String eCodOtros) {
+		this.eCodOtros = eCodOtros;
+	}
+	public Integer getA32171() {
+		return a32171;
+	}
+	public void setA32171(Integer a32171) {
+		this.a32171 = a32171;
+	}
+	public Integer getA32172() {
+		return a32172;
+	}
+	public void setA32172(Integer a32172) {
+		this.a32172 = a32172;
+	}
+	public Integer getA32173() {
+		return a32173;
+	}
+	public void setA32173(Integer a32173) {
+		this.a32173 = a32173;
+	}
+	public Integer getA32174() {
+		return a32174;
+	}
+	public void setA32174(Integer a32174) {
+		this.a32174 = a32174;
+	}
+	public Integer getA32175() {
+		return a32175;
+	}
+	public void setA32175(Integer a32175) {
+		this.a32175 = a32175;
+	}
+	public Integer getA32176() {
+		return a32176;
+	}
+	public void setA32176(Integer a32176) {
+		this.a32176 = a32176;
+	}
+	public Integer getA331() {
+		return a331;
+	}
+	public void setA331(Integer a331) {
+		this.a331 = a331;
+	}
+	public Integer getA332() {
+		return a332;
+	}
+	public void setA332(Integer a332) {
+		this.a332 = a332;
+	}
+	public Integer getA333() {
+		return a333;
+	}
+	public void setA333(Integer a333) {
+		this.a333 = a333;
+	}
+	public Integer getA334() {
+		return a334;
+	}
+	public void setA334(Integer a334) {
+		this.a334 = a334;
+	}
+	public Integer getA335() {
+		return a335;
+	}
+	public void setA335(Integer a335) {
+		this.a335 = a335;
+	}
+	public Integer getA336() {
+		return a336;
+	}
+	public void setA336(Integer a336) {
+		this.a336 = a336;
+	}	
+	
+	
+
+}

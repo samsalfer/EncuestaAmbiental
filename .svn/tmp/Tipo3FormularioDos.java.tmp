@@ -1,0 +1,477 @@
+<<<<<<< .mine
+package domain;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Embeddable;
+
+@Embeddable
+@Access(AccessType.PROPERTY)
+public class Tipo3FormularioDos {
+
+	// Constructors -----------------------------------------------------------
+
+	public Tipo3FormularioDos() {
+		super();
+	}
+
+	// Attributes -------------------------------------------------------------
+
+	// A3
+	private BigDecimal  a2111;
+	private BigDecimal  a2112;
+	private BigDecimal  a2113;
+	private BigDecimal  a22011;
+	private BigDecimal  a22012;
+	private BigDecimal  a22013;
+	private BigDecimal  a22021;
+	private BigDecimal  a22022;
+	private BigDecimal  a22023;
+	private BigDecimal  a22031;
+	private BigDecimal  a22032;
+	private BigDecimal  a22033;
+	private BigDecimal  a22041;
+	private BigDecimal  a22042;
+	private BigDecimal  a22043;
+	private BigDecimal  a22051;
+	private BigDecimal  a22052;
+	private BigDecimal  a22053;
+	private BigDecimal  a22061;
+	private BigDecimal  a22062;
+	private BigDecimal  a22063;
+	private BigDecimal  a22071;
+	private BigDecimal  a22072;
+	private BigDecimal  a22073;
+	private BigDecimal  a22081;
+	private BigDecimal  a22082;
+	private BigDecimal  a22083;
+	private BigDecimal  a22091;
+	private BigDecimal  a22092;
+	private BigDecimal  a22093;
+	private BigDecimal  a22101;
+	private BigDecimal  a22102;
+	private BigDecimal  a22103;
+	private BigDecimal  a22111;
+	private BigDecimal  a22112;
+	private BigDecimal  a22113;
+	private BigDecimal  a22121;
+	private BigDecimal  a22122;
+	private BigDecimal  a22123;
+	private BigDecimal  a22131;
+	private BigDecimal  a22132;
+	private BigDecimal  a22133;
+	private BigDecimal  a22141;
+	private BigDecimal  a22142;
+	private BigDecimal  a22143;
+	private BigDecimal  a22151;
+	private BigDecimal  a22152;
+	private BigDecimal  a22153;
+	private BigDecimal  a22161;
+	private BigDecimal  a22162;
+	private BigDecimal  a22163;
+	private String otros;
+	private String codOtros;
+	private BigDecimal  a22171;
+	private BigDecimal  a22172;
+	private BigDecimal  a22173;
+	public BigDecimal getA2111() {
+		return a2111;
+	}
+	public void setA2111(BigDecimal a2111) {
+		this.a2111 = a2111;
+	}
+	public BigDecimal getA2112() {
+		return a2112;
+	}
+	public void setA2112(BigDecimal a2112) {
+		this.a2112 = a2112;
+	}
+	public BigDecimal getA2113() {
+		return a2113;
+	}
+	public void setA2113(BigDecimal a2113) {
+		this.a2113 = a2113;
+	}
+	public BigDecimal getA22011() {
+		return a22011;
+	}
+	public void setA22011(BigDecimal a22011) {
+		this.a22011 = a22011;
+	}
+	public BigDecimal getA22012() {
+		return a22012;
+	}
+	public void setA22012(BigDecimal a22012) {
+		this.a22012 = a22012;
+	}
+	public BigDecimal getA22013() {
+		return a22013;
+	}
+	public void setA22013(BigDecimal a22013) {
+		this.a22013 = a22013;
+	}
+	public BigDecimal getA22021() {
+		return a22021;
+	}
+	public void setA22021(BigDecimal a22021) {
+		this.a22021 = a22021;
+	}
+	public BigDecimal getA22022() {
+		return a22022;
+	}
+	public void setA22022(BigDecimal a22022) {
+		this.a22022 = a22022;
+	}
+	public BigDecimal getA22023() {
+		return a22023;
+	}
+	public void setA22023(BigDecimal a22023) {
+		this.a22023 = a22023;
+	}
+	public BigDecimal getA22031() {
+		return a22031;
+	}
+	public void setA22031(BigDecimal a22031) {
+		this.a22031 = a22031;
+	}
+	public BigDecimal getA22032() {
+		return a22032;
+	}
+	public void setA22032(BigDecimal a22032) {
+		this.a22032 = a22032;
+	}
+	public BigDecimal getA22033() {
+		return a22033;
+	}
+	public void setA22033(BigDecimal a22033) {
+		this.a22033 = a22033;
+	}
+	public BigDecimal getA22041() {
+		return a22041;
+	}
+	public void setA22041(BigDecimal a22041) {
+		this.a22041 = a22041;
+	}
+	public BigDecimal getA22042() {
+		return a22042;
+	}
+	public void setA22042(BigDecimal a22042) {
+		this.a22042 = a22042;
+	}
+	public BigDecimal getA22043() {
+		return a22043;
+	}
+	public void setA22043(BigDecimal a22043) {
+		this.a22043 = a22043;
+	}
+	public BigDecimal getA22051() {
+		return a22051;
+	}
+	public void setA22051(BigDecimal a22051) {
+		this.a22051 = a22051;
+	}
+	public BigDecimal getA22052() {
+		return a22052;
+	}
+	public void setA22052(BigDecimal a22052) {
+		this.a22052 = a22052;
+	}
+	public BigDecimal getA22053() {
+		return a22053;
+	}
+	public void setA22053(BigDecimal a22053) {
+		this.a22053 = a22053;
+	}
+	public BigDecimal getA22061() {
+		return a22061;
+	}
+	public void setA22061(BigDecimal a22061) {
+		this.a22061 = a22061;
+	}
+	public BigDecimal getA22062() {
+		return a22062;
+	}
+	public void setA22062(BigDecimal a22062) {
+		this.a22062 = a22062;
+	}
+	public BigDecimal getA22063() {
+		return a22063;
+	}
+	public void setA22063(BigDecimal a22063) {
+		this.a22063 = a22063;
+	}
+	public BigDecimal getA22071() {
+		return a22071;
+	}
+	public void setA22071(BigDecimal a22071) {
+		this.a22071 = a22071;
+	}
+	public BigDecimal getA22072() {
+		return a22072;
+	}
+	public void setA22072(BigDecimal a22072) {
+		this.a22072 = a22072;
+	}
+	public BigDecimal getA22073() {
+		return a22073;
+	}
+	public void setA22073(BigDecimal a22073) {
+		this.a22073 = a22073;
+	}
+	public BigDecimal getA22081() {
+		return a22081;
+	}
+	public void setA22081(BigDecimal a22081) {
+		this.a22081 = a22081;
+	}
+	public BigDecimal getA22082() {
+		return a22082;
+	}
+	public void setA22082(BigDecimal a22082) {
+		this.a22082 = a22082;
+	}
+	public BigDecimal getA22083() {
+		return a22083;
+	}
+	public void setA22083(BigDecimal a22083) {
+		this.a22083 = a22083;
+	}
+	public BigDecimal getA22091() {
+		return a22091;
+	}
+	public void setA22091(BigDecimal a22091) {
+		this.a22091 = a22091;
+	}
+	public BigDecimal getA22092() {
+		return a22092;
+	}
+	public void setA22092(BigDecimal a22092) {
+		this.a22092 = a22092;
+	}
+	public BigDecimal getA22093() {
+		return a22093;
+	}
+	public void setA22093(BigDecimal a22093) {
+		this.a22093 = a22093;
+	}
+	public BigDecimal getA22101() {
+		return a22101;
+	}
+	public void setA22101(BigDecimal a22101) {
+		this.a22101 = a22101;
+	}
+	public BigDecimal getA22102() {
+		return a22102;
+	}
+	public void setA22102(BigDecimal a22102) {
+		this.a22102 = a22102;
+	}
+	public BigDecimal getA22103() {
+		return a22103;
+	}
+	public void setA22103(BigDecimal a22103) {
+		this.a22103 = a22103;
+	}
+	public BigDecimal getA22111() {
+		return a22111;
+	}
+	public void setA22111(BigDecimal a22111) {
+		this.a22111 = a22111;
+	}
+	public BigDecimal getA22112() {
+		return a22112;
+	}
+	public void setA22112(BigDecimal a22112) {
+		this.a22112 = a22112;
+	}
+	public BigDecimal getA22113() {
+		return a22113;
+	}
+	public void setA22113(BigDecimal a22113) {
+		this.a22113 = a22113;
+	}
+	public BigDecimal getA22121() {
+		return a22121;
+	}
+	public void setA22121(BigDecimal a22121) {
+		this.a22121 = a22121;
+	}
+	public BigDecimal getA22122() {
+		return a22122;
+	}
+	public void setA22122(BigDecimal a22122) {
+		this.a22122 = a22122;
+	}
+	public BigDecimal getA22123() {
+		return a22123;
+	}
+	public void setA22123(BigDecimal a22123) {
+		this.a22123 = a22123;
+	}
+	public BigDecimal getA22131() {
+		return a22131;
+	}
+	public void setA22131(BigDecimal a22131) {
+		this.a22131 = a22131;
+	}
+	public BigDecimal getA22132() {
+		return a22132;
+	}
+	public void setA22132(BigDecimal a22132) {
+		this.a22132 = a22132;
+	}
+	public BigDecimal getA22133() {
+		return a22133;
+	}
+	public void setA22133(BigDecimal a22133) {
+		this.a22133 = a22133;
+	}
+	public BigDecimal getA22141() {
+		return a22141;
+	}
+	public void setA22141(BigDecimal a22141) {
+		this.a22141 = a22141;
+	}
+	public BigDecimal getA22142() {
+		return a22142;
+	}
+	public void setA22142(BigDecimal a22142) {
+		this.a22142 = a22142;
+	}
+	public BigDecimal getA22143() {
+		return a22143;
+	}
+	public void setA22143(BigDecimal a22143) {
+		this.a22143 = a22143;
+	}
+	public BigDecimal getA22151() {
+		return a22151;
+	}
+	public void setA22151(BigDecimal a22151) {
+		this.a22151 = a22151;
+	}
+	public BigDecimal getA22152() {
+		return a22152;
+	}
+	public void setA22152(BigDecimal a22152) {
+		this.a22152 = a22152;
+	}
+	public BigDecimal getA22153() {
+		return a22153;
+	}
+	public void setA22153(BigDecimal a22153) {
+		this.a22153 = a22153;
+	}
+	public BigDecimal getA22161() {
+		return a22161;
+	}
+	public void setA22161(BigDecimal a22161) {
+		this.a22161 = a22161;
+	}
+	public BigDecimal getA22162() {
+		return a22162;
+	}
+	public void setA22162(BigDecimal a22162) {
+		this.a22162 = a22162;
+	}
+	public BigDecimal getA22163() {
+		return a22163;
+	}
+	public void setA22163(BigDecimal a22163) {
+		this.a22163 = a22163;
+	}
+	public String getOtros() {
+		return otros;
+	}
+	public void setOtros(String otros) {
+		this.otros = otros;
+	}
+	public String getCodOtros() {
+		return codOtros;
+	}
+	public void setCodOtros(String codOtros) {
+		this.codOtros = codOtros;
+	}
+	public BigDecimal getA22171() {
+		return a22171;
+	}
+	public void setA22171(BigDecimal a22171) {
+		this.a22171 = a22171;
+	}
+	public BigDecimal getA22172() {
+		return a22172;
+	}
+	public void setA22172(BigDecimal a22172) {
+		this.a22172 = a22172;
+	}
+	public BigDecimal getA22173() {
+		return a22173;
+	}
+	public void setA22173(BigDecimal a22173) {
+		this.a22173 = a22173;
+	}
+	
+	
+	
+	
+
+}=======
+package domain;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Embeddable;
+
+@Embeddable
+@Access(AccessType.PROPERTY)
+public class Tipo3FormularioDos {
+
+	// Constructors -----------------------------------------------------------
+
+	public Tipo3FormularioDos() {
+		super();
+	}
+
+	// Attributes -------------------------------------------------------------
+
+	// A3
+	private String a31;
+	private String a31c;
+	private String a32;
+	private String a32c;
+
+	public String getA31() {
+		return a31;
+	}
+
+	public void setA31(String a31) {
+		this.a31 = a31;
+	}
+
+	public String getA31c() {
+		return a31c;
+	}
+
+	public void setA31c(String a31c) {
+		this.a31c = a31c;
+	}
+
+	public String getA32() {
+		return a32;
+	}
+
+	public void setA32(String a32) {
+		this.a32 = a32;
+	}
+
+	public String getA32c() {
+		return a32c;
+	}
+
+	public void setA32c(String a32c) {
+		this.a32c = a32c;
+	}
+
+}>>>>>>> .r192

@@ -1,0 +1,297 @@
+package domain;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Embeddable;
+
+@Embeddable
+@Access(AccessType.PROPERTY)
+public class Tipo2FormularioTres {
+
+	// Constructors -----------------------------------------------------------
+
+	public Tipo2FormularioTres() {
+		super();
+	}
+
+	// Attributes -------------------------------------------------------------
+
+	// A4
+
+	private Double a411;
+	private Double a412;
+	private Double a413;
+	private Double a414;
+	private Double a421;
+	private Double a422;
+	private Double a423;
+	private Double a424;
+
+	private Integer a43011;
+	private Integer a43012;
+	private Integer a43013;
+	private Integer a43014;
+
+	private Integer a43021;
+	private Integer a43022;
+	private Integer a43023;
+	private Integer a43024;
+
+	private Integer a43031;
+	private Integer a43032;
+	private Integer a43033;
+	private Integer a43034;
+
+	private String otros1;
+	private Integer a43041;
+	private Integer a43042;
+	private Integer a43043;
+	private Integer a43044;
+
+	private String otros2;
+	private Integer a43051;
+	private Integer a43052;
+	private Integer a43053;
+	private Integer a43054;
+
+	public Double getA411() {
+		return a411;
+	}
+
+	public void setA411(Double a411) {
+		this.a411 = a411;
+	}
+
+	public Double getA412() {
+		return a412;
+	}
+
+	public void setA412(Double a412) {
+		this.a412 = a412;
+	}
+
+	public Double getA413() {
+		return a413;
+	}
+
+	public void setA413(Double a413) {
+		this.a413 = a413;
+	}
+
+	public Double getA414() {
+		return a414;
+	}
+
+	public void setA414(Double a414) {
+		this.a414 = a414;
+	}
+
+	public Double getA421() {
+		return a421;
+	}
+
+	public void setA421(Double a421) {
+		this.a421 = a421;
+	}
+
+	public Double getA422() {
+		return a422;
+	}
+
+	public void setA422(Double a422) {
+		this.a422 = a422;
+	}
+
+	public Double getA423() {
+		return a423;
+	}
+
+	public void setA423(Double a423) {
+		this.a423 = a423;
+	}
+
+	public Double getA424() {
+		return a424;
+	}
+
+	public void setA424(Double a424) {
+		this.a424 = a424;
+	}
+
+	public Integer getA43011() {
+		return a43011;
+	}
+
+	public void setA43011(Integer a43011) {
+		this.a43011 = a43011;
+	}
+
+	public Integer getA43012() {
+		return a43012;
+	}
+
+	public void setA43012(Integer a43012) {
+		this.a43012 = a43012;
+	}
+
+	public Integer getA43013() {
+		return a43013;
+	}
+
+	public void setA43013(Integer a43013) {
+		this.a43013 = a43013;
+	}
+
+	public Integer getA43014() {
+		return a43014;
+	}
+
+	public void setA43014(Integer a43014) {
+		this.a43014 = a43014;
+	}
+
+	public Integer getA43021() {
+		return a43021;
+	}
+
+	public void setA43021(Integer a43021) {
+		this.a43021 = a43021;
+	}
+
+	public Integer getA43022() {
+		return a43022;
+	}
+
+	public void setA43022(Integer a43022) {
+		this.a43022 = a43022;
+	}
+
+	public Integer getA43023() {
+		return a43023;
+	}
+
+	public void setA43023(Integer a43023) {
+		this.a43023 = a43023;
+	}
+
+	public Integer getA43024() {
+		return a43024;
+	}
+
+	public void setA43024(Integer a43024) {
+		this.a43024 = a43024;
+	}
+
+	public Integer getA43031() {
+		return a43031;
+	}
+
+	public void setA43031(Integer a43031) {
+		this.a43031 = a43031;
+	}
+
+	public Integer getA43032() {
+		return a43032;
+	}
+
+	public void setA43032(Integer a43032) {
+		this.a43032 = a43032;
+	}
+
+	public Integer getA43033() {
+		return a43033;
+	}
+
+	public void setA43033(Integer a43033) {
+		this.a43033 = a43033;
+	}
+
+	public Integer getA43034() {
+		return a43034;
+	}
+
+	public void setA43034(Integer a43034) {
+		this.a43034 = a43034;
+	}
+
+	public String getOtros1() {
+		return otros1;
+	}
+
+	public void setOtros1(String otros1) {
+		this.otros1 = otros1;
+	}
+
+	public Integer getA43041() {
+		return a43041;
+	}
+
+	public void setA43041(Integer a43041) {
+		this.a43041 = a43041;
+	}
+
+	public Integer getA43042() {
+		return a43042;
+	}
+
+	public void setA43042(Integer a43042) {
+		this.a43042 = a43042;
+	}
+
+	public Integer getA43043() {
+		return a43043;
+	}
+
+	public void setA43043(Integer a43043) {
+		this.a43043 = a43043;
+	}
+
+	public Integer getA43044() {
+		return a43044;
+	}
+
+	public void setA43044(Integer a43044) {
+		this.a43044 = a43044;
+	}
+
+	public String getOtros2() {
+		return otros2;
+	}
+
+	public void setOtros2(String otros2) {
+		this.otros2 = otros2;
+	}
+
+	public Integer getA43051() {
+		return a43051;
+	}
+
+	public void setA43051(Integer a43051) {
+		this.a43051 = a43051;
+	}
+
+	public Integer getA43052() {
+		return a43052;
+	}
+
+	public void setA43052(Integer a43052) {
+		this.a43052 = a43052;
+	}
+
+	public Integer getA43053() {
+		return a43053;
+	}
+
+	public void setA43053(Integer a43053) {
+		this.a43053 = a43053;
+	}
+
+	public Integer getA43054() {
+		return a43054;
+	}
+
+	public void setA43054(Integer a43054) {
+		this.a43054 = a43054;
+	}
+
+}

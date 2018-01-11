@@ -1,0 +1,682 @@
+<%-- * action-1.jsp * * Copyright (C) 2013 Universidad de Sevilla * * The use of this project is hereby constrained to the conditions of the * TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html --%>
+
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="display" uri="http://displaytag.sf.net"%>
+<%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+
+<security:authorize access="hasAnyRole('ADMIN')">
+	<div id="page-wrapper"
+		style="margin-left: 50px; margin-right: 50px; height: 800px;">
+		<div class="row">
+			<br />
+
+			<jstl:if test="${done == true}">
+				<div class="col-lg-12" align="center">
+					<div class="alert alert-success">La nueva empresa ha sido
+						creada con éxito.</div>
+				</div>
+
+				<br />
+			</jstl:if>
+
+			<jstl:if test="${delete == true}">
+				<div class="col-lg-12" align="center">
+					<div class="alert alert-success">La empresa ha sido borrada
+						con éxito.</div>
+				</div>
+
+				<br />
+			</jstl:if>
+
+			<jstl:if test="${done == false}">
+				<div class="col-lg-12" align="center">
+					<div class="alert alert-danger">La nueva empresa no ha podido
+						crearse con éxito. Lo más posible es que la empresa ya exista con
+						el mismo CIF.</div>
+				</div>
+
+				<br />
+			</jstl:if>
+
+			<a href="encuesta/bienvenida.do"><button type="button"
+					class="btn btn-outline btn-primary">
+					<p class="fa fa-reply">Volver a administración</p>
+				</button></a>
+
+			<jstl:if test="${requestURI == 'encuesta/buscarTipo1.do'}">
+				<button type="button" class="btn btn-outline btn-primary"
+					data-toggle="modal" data-target="#myModal">
+					<p class="fa fa-user">Crear nueva empresa</p>
+				</button>
+			</jstl:if>
+			<jstl:if test="${requestURI == 'encuesta/buscarTipo2.do'}">
+				<button type="button" class="btn btn-outline btn-primary"
+					data-toggle="modal" data-target="#myModal2">
+					<p class="fa fa-user">Crear nueva empresa</p>
+				</button>
+			</jstl:if>
+			<jstl:if test="${requestURI == 'encuesta/buscarTipo3.do'}">
+				<button type="button" class="btn btn-outline btn-primary"
+					data-toggle="modal" data-target="#myModal3">
+					<p class="fa fa-user">Crear nueva empresa</p>
+				</button>
+			</jstl:if>
+			<jstl:if test="${requestURI == 'encuesta/buscarTipo4.do'}">
+				<button type="button" class="btn btn-outline btn-primary"
+					data-toggle="modal" data-target="#myModal4">
+					<p class="fa fa-user">Crear nueva empresa</p>
+				</button>
+			</jstl:if>
+			<div class="col-lg-12" align="center">
+
+				<jstl:choose>
+					<jstl:when test="${requestURI == 'encuesta/buscar/terminadas1.do'}">
+						<h2>Encuestas TIPO I terminadas</h2>
+					</jstl:when>
+					<jstl:when test="${requestURI == 'encuesta/buscar/revisadas1.do'}">
+						<h2>Encuestas TIPO I revisadas</h2>
+					</jstl:when>
+					<jstl:when
+						test="${requestURI == 'encuesta/buscar/noAmbientales1.do'}">
+						<h2>Encuestas TIPO I no ambientales</h2>
+					</jstl:when>
+					<jstl:when test="${requestURI == 'encuesta/buscar/validadas1.do'}">
+						<h2>Encuestas TIPO I no validadas</h2>
+					</jstl:when>
+					<jstl:when
+						test="${requestURI == 'encuesta/buscar/incidencias1.do'}">
+						<h2>Encuestas TIPO I con incidencias</h2>
+					</jstl:when>
+					<jstl:when test="${requestURI == 'encuesta/buscar/terminadas2.do'}">
+						<h2>Encuestas TIPO II terminadas</h2>
+					</jstl:when>
+					<jstl:when test="${requestURI == 'encuesta/buscar/revisadas2.do'}">
+						<h2>Encuestas TIPO II revisadas</h2>
+					</jstl:when>
+					<jstl:when
+						test="${requestURI == 'encuesta/buscar/noAmbientales2.do'}">
+						<h2>Encuestas TIPO II no ambientales</h2>
+					</jstl:when>
+					<jstl:when test="${requestURI == 'encuesta/buscar/validadas2.do'}">
+						<h2>Encuestas TIPO II no validadas</h2>
+					</jstl:when>
+					<jstl:when
+						test="${requestURI == 'encuesta/buscar/incidencias2.do'}">
+						<h2>Encuestas TIPO II con incidencias</h2>
+					</jstl:when>
+					<jstl:when test="${requestURI == 'encuesta/buscar/terminadas3.do'}">
+						<h2>Encuestas TIPO III terminadas</h2>
+					</jstl:when>
+					<jstl:when test="${requestURI == 'encuesta/buscar/revisadas3.do'}">
+						<h2>Encuestas TIPO III revisadas</h2>
+					</jstl:when>
+					<jstl:when
+						test="${requestURI == 'encuesta/buscar/noAmbientales3.do'}">
+						<h2>Encuestas TIPO III no ambientales</h2>
+					</jstl:when>
+					<jstl:when test="${requestURI == 'encuesta/buscar/validadas3.do'}">
+						<h2>Encuestas TIPO III no validadas</h2>
+					</jstl:when>
+					<jstl:when
+						test="${requestURI == 'encuesta/buscar/incidencias3.do'}">
+						<h2>Encuestas TIPO III con incidencias</h2>
+					</jstl:when>
+					<jstl:when test="${requestURI == 'encuesta/buscar/terminadas4.do'}">
+						<h2>Encuestas TIPO IV terminadas</h2>
+					</jstl:when>
+					<jstl:when test="${requestURI == 'encuesta/buscar/revisadas4.do'}">
+						<h2>Encuestas TIPO IV revisadas</h2>
+					</jstl:when>
+					<jstl:when
+						test="${requestURI == 'encuesta/buscar/noAmbientales4.do'}">
+						<h2>Encuestas TIPO IV no ambientales</h2>
+					</jstl:when>
+					<jstl:when test="${requestURI == 'encuesta/buscar/validadas4.do'}">
+						<h2>Encuestas TIPO IV no validadas</h2>
+					</jstl:when>
+					<jstl:when
+						test="${requestURI == 'encuesta/buscar/incidencias4.do'}">
+						<h2>Encuestas TIPO IV con incidencias</h2>
+					</jstl:when>
+					<jstl:otherwise>
+						<h2>Búsqueda de encuesta por CIF</h2>
+					</jstl:otherwise>
+				</jstl:choose>
+
+				<jstl:if
+					test="${requestURI == 'encuesta/buscarTipo1.do' or requestURI == 'encuesta/buscar/revisadas1.do' or requestURI == 'encuesta/buscar/terminadas1.do' or requestURI == 'encuesta/buscar/noAmbientales1.do' or requestURI == 'encuesta/buscar/validadas1.do' or requestURI == 'encuesta/buscar/incidencias1.do' or requestURI == 'encuesta/buscarCIF1.do'}">
+					<a href="encuesta/buscarTipo1.do">
+						<button type="button" class="btn btn-outline btn-primary btn-lg">Buscar
+							por CIF</button>
+					</a>
+					<a href="encuesta/buscarTipo1/terminadas.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							terminadas</button></a>
+					<a href="encuesta/buscarTipo1/incidencias.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							con incidencias</button></a>
+					<a href="encuesta/buscarTipo1/revisadas.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							revisadas</button></a>
+					<a href="encuesta/buscarTipo1/noAmbientales.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							no ambientales</button></a>
+					<a href="encuesta/buscarTipo1/validadas.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							validadas</button></a>
+				</jstl:if>
+				<jstl:if
+					test="${requestURI == 'encuesta/buscarTipo2.do' or requestURI == 'encuesta/buscar/revisadas2.do' or requestURI == 'encuesta/buscar/terminadas2.do' or requestURI == 'encuesta/buscar/noAmbientales2.do' or requestURI == 'encuesta/buscar/validadas2.do' or requestURI == 'encuesta/buscar/incidencias2.do' or requestURI == 'encuesta/buscarCIF2.do'}">
+					<a href="encuesta/buscarTipo2.do">
+						<button type="button" class="btn btn-outline btn-primary btn-lg">Buscar
+							por CIF</button>
+					</a>
+					<a href="encuesta/buscarTipo2/terminadas.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							terminadas</button></a>
+					<a href="encuesta/buscarTipo2/incidencias.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							con incidencias</button></a>
+					<a href="encuesta/buscarTipo2/revisadas.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							revisadas</button></a>
+					<a href="encuesta/buscarTipo2/noAmbientales.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							no ambientales</button></a>
+					<a href="encuesta/buscarTipo2/validadas.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							validadas</button></a>
+				</jstl:if>
+				<jstl:if
+					test="${requestURI == 'encuesta/buscarTipo3.do' or requestURI == 'encuesta/buscar/revisadas3.do' or requestURI == 'encuesta/buscar/terminadas3.do' or requestURI == 'encuesta/buscar/noAmbientales3.do' or requestURI == 'encuesta/buscar/validadas3.do' or requestURI == 'encuesta/buscar/incidencias3.do' or requestURI == 'encuesta/buscarCIF3.do'}">
+					<a href="encuesta/buscarTipo3.do">
+						<button type="button" class="btn btn-outline btn-primary btn-lg">Buscar
+							por CIF</button>
+					</a>
+					<a href="encuesta/buscarTipo3/terminadas.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							terminadas</button></a>
+					<a href="encuesta/buscarTipo3/incidencias.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							con incidencias</button></a>
+					<a href="encuesta/buscarTipo3/revisadas.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							revisadas</button></a>
+					<a href="encuesta/buscarTipo3/noAmbientales.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							no ambientales</button></a>
+					<a href="encuesta/buscarTipo3/validadas.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							validadas</button></a>
+				</jstl:if>
+				<jstl:if
+					test="${requestURI == 'encuesta/buscarTipo4.do' or requestURI == 'encuesta/buscar/revisadas4.do' or requestURI == 'encuesta/buscar/terminadas4.do' or requestURI == 'encuesta/buscar/noAmbientales4.do' or requestURI == 'encuesta/buscar/validadas4.do' or requestURI == 'encuesta/buscar/incidencias4.do' or requestURI == 'encuesta/buscarCIF4.do'}">
+					<a href="encuesta/buscarTipo4.do">
+						<button type="button" class="btn btn-outline btn-primary btn-lg">Buscar
+							por CIF</button>
+					</a>
+					<a href="encuesta/buscarTipo4/terminadas.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							terminadas</button></a>
+					<a href="encuesta/buscarTipo4/incidencias.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							con incidencias</button></a>
+					<a href="encuesta/buscarTipo4/revisadas.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							revisadas</button></a>
+					<a href="encuesta/buscarTipo4/noAmbientales.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							no ambientales</button></a>
+					<a href="encuesta/buscarTipo4/validadas.do"><button
+							type="button" class="btn btn-outline btn-primary btn-lg">Encuestas
+							validadas</button></a>
+				</jstl:if>
+			</div>
+
+			<div class="col-lg-12">&nbsp&nbsp&nbsp</div>
+			<div class="col-lg-12">&nbsp&nbsp&nbsp</div>
+
+
+			<jstl:choose>
+				<jstl:when test="${requestURI == 'encuesta/buscarTipo1.do'}">
+					<div class="col-lg-12">
+						<div class="col-lg-4">&nbsp&nbsp&nbsp</div>
+						<div class="col-lg-3 col-md-3 col-xs-3" align="left">
+							<form role="form">
+								<div class="form-group input-group">
+									<span class="input-group-addon">Búsqueda por CIF</span> <input
+										type="text" class="form-control"
+										placeholder="Inserte un CIF para buscar" id="valor">
+								</div>
+							</form>
+						</div>
+						<div class="col-lg-1" align="left" style="margin-left: -25px;">
+							<button type="submit" class="btn btn-default" id="boton"
+								name="valor" onclick="newDoc(); return false">Buscar
+								encuesta</button>
+						</div>
+						<div class="col-lg-4">&nbsp&nbsp&nbsp</div>
+					</div>
+				</jstl:when>
+				<jstl:when test="${requestURI == 'encuesta/buscarTipo2.do'}">
+					<div class="col-lg-12">
+						<div class="col-lg-4">&nbsp&nbsp&nbsp</div>
+						<div class="col-lg-3 col-md-3 col-xs-3" align="left">
+							<form role="form">
+								<div class="form-group input-group">
+									<span class="input-group-addon">Búsqueda por CIF</span> <input
+										type="text" class="form-control"
+										placeholder="Inserte un CIF para buscar" id="valor">
+								</div>
+							</form>
+						</div>
+						<div class="col-lg-1" align="left" style="margin-left: -25px;">
+							<button type="submit" class="btn btn-default" id="boton"
+								name="valor" onclick="newDoc2(); return false">Buscar
+								encuesta</button>
+						</div>
+						<div class="col-lg-4">&nbsp&nbsp&nbsp</div>
+					</div>
+				</jstl:when>
+				<jstl:when test="${requestURI == 'encuesta/buscarTipo3.do'}">
+					<div class="col-lg-12">
+						<div class="col-lg-4">&nbsp&nbsp&nbsp</div>
+						<div class="col-lg-3 col-md-3 col-xs-3" align="left">
+							<form role="form">
+								<div class="form-group input-group">
+									<span class="input-group-addon">Búsqueda por CIF</span> <input
+										type="text" class="form-control"
+										placeholder="Inserte un CIF para buscar" id="valor">
+								</div>
+							</form>
+						</div>
+						<div class="col-lg-1" align="left" style="margin-left: -25px;">
+							<button type="submit" class="btn btn-default" id="boton"
+								name="valor" onclick="newDoc3(); return false">Buscar
+								encuesta</button>
+						</div>
+						<div class="col-lg-4">&nbsp&nbsp&nbsp</div>
+					</div>
+				</jstl:when>
+				<jstl:when test="${requestURI == 'encuesta/buscarTipo4.do'}">
+					<div class="col-lg-12">
+						<div class="col-lg-4">&nbsp&nbsp&nbsp</div>
+						<div class="col-lg-3 col-md-3 col-xs-3" align="left">
+							<form role="form">
+								<div class="form-group input-group">
+									<span class="input-group-addon">Búsqueda por CIF</span> <input
+										type="text" class="form-control"
+										placeholder="Inserte un CIF para buscar" id="valor">
+								</div>
+							</form>
+						</div>
+						<div class="col-lg-1" align="left" style="margin-left: -25px;">
+							<button type="submit" class="btn btn-default" id="boton"
+								name="valor" onclick="newDoc4(); return false">Buscar
+								encuesta</button>
+						</div>
+						<div class="col-lg-4">&nbsp&nbsp&nbsp</div>
+					</div>
+				</jstl:when>
+				<jstl:otherwise>
+
+
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">Tabla de resultados encuestas</div>
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+								<div class="table-responsive">
+									<table class="table table-striped table-bordered table-hover">
+										<thead>
+											<tr>
+												<th>Id</th>
+												<th>Cif</th>
+												<th>Nombre</th>
+												<th>Teléfono</th>
+												<th>Fecha de envío</th>
+												<th>Mostrar encuesta</th>
+												<jstl:if test="${requestURI == 'encuesta/buscarCIF1.do'}">
+													<th>Borrar empresa</th>
+												</jstl:if>
+												<jstl:if test="${requestURI == 'encuesta/buscarCIF2.do'}">
+													<th>Borrar empresa</th>
+												</jstl:if>
+												<jstl:if test="${requestURI == 'encuesta/buscarCIF3.do'}">
+													<th>Borrar empresa</th>
+												</jstl:if>
+												<jstl:if test="${requestURI == 'encuesta/buscarCIF4.do'}">
+													<th>Borrar empresa</th>
+												</jstl:if>
+											</tr>
+										</thead>
+										<tbody>
+											<jstl:forEach var="x" items="${resultados}">
+												<tr>
+													<td><jstl:out value="${x.id}" /></td>
+													<td><jstl:out value="${x.formularioUno.a104}" /></td>
+													<td><jstl:out value="${x.formularioUno.a102}" /></td>
+													<jstl:if
+														test="${requestURI == 'encuesta/buscarTipo1.do' or requestURI == 'encuesta/buscar/revisadas1.do' or requestURI == 'encuesta/buscar/terminadas1.do' or requestURI == 'encuesta/buscar/noAmbientales1.do' or requestURI == 'encuesta/buscar/validadas1.do' or requestURI == 'encuesta/buscar/incidencias1.do' or requestURI == 'encuesta/buscarCIF1.do'}">
+														<td><jstl:out value="${x.telefonoCIF1}" /></td>
+													</jstl:if>
+													<jstl:if
+														test="${requestURI == 'encuesta/buscarTipo2.do' or requestURI == 'encuesta/buscar/revisadas2.do' or requestURI == 'encuesta/buscar/terminadas2.do' or requestURI == 'encuesta/buscar/noAmbientales2.do' or requestURI == 'encuesta/buscar/validadas2.do' or requestURI == 'encuesta/buscar/incidencias2.do' or requestURI == 'encuesta/buscarCIF2.do'}">
+														<td><jstl:out value="${x.telefonoCIF2}" /></td>
+													</jstl:if>
+													<jstl:if
+														test="${requestURI == 'encuesta/buscarTipo3.do' or requestURI == 'encuesta/buscar/revisadas3.do' or requestURI == 'encuesta/buscar/terminadas3.do' or requestURI == 'encuesta/buscar/noAmbientales3.do' or requestURI == 'encuesta/buscar/validadas3.do' or requestURI == 'encuesta/buscar/incidencias3.do' or requestURI == 'encuesta/buscarCIF3.do'}">
+														<td><jstl:out value="${x.telefonoCIF3}" /></td>
+													</jstl:if>
+													<jstl:if
+														test="${requestURI == 'encuesta/buscarTipo4.do' or requestURI == 'encuesta/buscar/revisadas4.do' or requestURI == 'encuesta/buscar/terminadas4.do' or requestURI == 'encuesta/buscar/noAmbientales4.do' or requestURI == 'encuesta/buscar/validadas4.do' or requestURI == 'encuesta/buscar/incidencias4.do' or requestURI == 'encuesta/buscarCIF4.do'}">
+														<td><jstl:out value="${x.telefonoCIF4}" /></td>
+													</jstl:if>
+													<td><fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss"
+															value="${x.fechaEnvio}" /></td>
+													<jstl:if
+														test="${requestURI == 'encuesta/buscarTipo1.do' or requestURI == 'encuesta/buscar/revisadas1.do' or requestURI == 'encuesta/buscar/terminadas1.do' or requestURI == 'encuesta/buscar/noAmbientales1.do' or requestURI == 'encuesta/buscar/validadas1.do' or requestURI == 'encuesta/buscar/incidencias1.do' or requestURI == 'encuesta/buscarCIF1.do'}">
+														<td><a
+															href="encuesta/cif1/verPaginaUno.do?tipoCIF1Id=${x.id}">Ver
+																encuesta</a></td>
+													</jstl:if>
+													<jstl:if
+														test="${requestURI == 'encuesta/buscarTipo2.do' or requestURI == 'encuesta/buscar/revisadas2.do' or requestURI == 'encuesta/buscar/terminadas2.do' or requestURI == 'encuesta/buscar/noAmbientales2.do' or requestURI == 'encuesta/buscar/validadas2.do' or requestURI == 'encuesta/buscar/incidencias2.do' or requestURI == 'encuesta/buscarCIF2.do'}">
+														<td><a
+															href="encuesta/cif2/verPaginaUno.do?tipoCIF2Id=${x.id}">Ver
+																encuesta</a></td>
+													</jstl:if>
+													<jstl:if
+														test="${requestURI == 'encuesta/buscarTipo3.do' or requestURI == 'encuesta/buscar/revisadas3.do' or requestURI == 'encuesta/buscar/terminadas3.do' or requestURI == 'encuesta/buscar/noAmbientales3.do' or requestURI == 'encuesta/buscar/validadas3.do' or requestURI == 'encuesta/buscar/incidencias3.do' or requestURI == 'encuesta/buscarCIF3.do'}">
+														<td><a
+															href="encuesta/cif3/verPaginaUno.do?tipoCIF3Id=${x.id}">Ver
+																encuesta</a></td>
+													</jstl:if>
+													<jstl:if
+														test="${requestURI == 'encuesta/buscarTipo4.do' or requestURI == 'encuesta/buscar/revisadas4.do' or requestURI == 'encuesta/buscar/terminadas4.do' or requestURI == 'encuesta/buscar/noAmbientales4.do' or requestURI == 'encuesta/buscar/validadas4.do' or requestURI == 'encuesta/buscar/incidencias4.do' or requestURI == 'encuesta/buscarCIF4.do'}">
+														<td><a
+															href="encuesta/cif4/verPaginaUno.do?tipoCIF4Id=${x.id}">Ver
+																encuesta</a></td>
+													</jstl:if>
+													<jstl:if test="${requestURI == 'encuesta/buscarCIF1.do'}">
+														<td><i class="fa fa-trash-o"></i> &nbsp;&nbsp;<a
+															href="encuesta/borrarTipo1.do?tipoCIF1Id=${x.id}"
+															onclick="return confirm('¿Estás seguro de que quieres eliminar esta empresa? \n\n Si la respuesta es que sí, debes crear una nueva empresa dependiendo del tipo de encuesta que posea.\n\n Para ello debes acceder a la sección de encuestas y pulsar en el botón de crear una nueva empresa situado en la parte superior izquierda. ')">Eliminar</a></td>
+													</jstl:if>
+													<jstl:if test="${requestURI == 'encuesta/buscarCIF2.do'}">
+														<td><i class="fa fa-trash-o"></i> &nbsp;&nbsp;<a
+															href="encuesta/borrarTipo2.do?tipoCIF2Id=${x.id}"
+															onclick="return confirm('¿Estás seguro de que quieres eliminar esta empresa? \n\n Si la respuesta es que sí, debes crear una nueva empresa dependiendo del tipo de encuesta que posea.\n\n Para ello debes acceder a la sección de encuestas y pulsar en el botón de crear una nueva empresa situado en la parte superior izquierda. ')">Eliminar</a></td>
+													</jstl:if>
+													<jstl:if test="${requestURI == 'encuesta/buscarCIF3.do'}">
+														<td><i class="fa fa-trash-o"></i> &nbsp;&nbsp;<a
+															href="encuesta/borrarTipo3.do?tipoCIF3Id=${x.id}"
+															onclick="return confirm('¿Estás seguro de que quieres eliminar esta empresa? \n\n Si la respuesta es que sí, debes crear una nueva empresa dependiendo del tipo de encuesta que posea.\n\n Para ello debes acceder a la sección de encuestas y pulsar en el botón de crear una nueva empresa situado en la parte superior izquierda. ')">Eliminar</a></td>
+													</jstl:if>
+													<jstl:if test="${requestURI == 'encuesta/buscarCIF4.do'}">
+														<td><i class="fa fa-trash-o"></i> &nbsp;&nbsp;<a
+															href="encuesta/borrarTipo4.do?tipoCIF4Id=${x.id}"
+															onclick="return confirm('¿Estás seguro de que quieres eliminar esta empresa? \n\n Si la respuesta es que sí, debes crear una nueva empresa dependiendo del tipo de encuesta que posea.\n\n Para ello debes acceder a la sección de encuestas y pulsar en el botón de crear una nueva empresa situado en la parte superior izquierda. ')">Eliminar</a></td>
+													</jstl:if>
+												</tr>
+
+											</jstl:forEach>
+
+										</tbody>
+									</table>
+								</div>
+								<!-- /.table-responsive -->
+								<jstl:if test="${fn:length(resultados) eq 0}">
+									<div class="col-sm-6">
+										<div class="dataTables_info" id="dataTables-example_info"
+											role="status" aria-live="polite">No se han encontrado
+											resultados, pruebe otra vez.</div>
+									</div>
+								</jstl:if>
+
+								<jstl:if test="${fn:length(resultados) gt 0}">
+									<div class="col-sm-6">
+										<div class="dataTables_info" id="dataTables-example_info"
+											role="status" aria-live="polite">
+											Se ha encontrado
+											<jstl:out value="${fn:length(resultados)}"></jstl:out>
+											resultados.
+										</div>
+									</div>
+								</jstl:if>
+							</div>
+							<!-- /.panel-body -->
+
+						</div>
+						<!-- /.panel -->
+					</div>
+				</jstl:otherwise>
+			</jstl:choose>
+
+		</div>
+	</div>
+</security:authorize>
+
+<script>
+	function newDoc() {
+
+		var val = document.getElementById("valor").value;
+
+		window.location.replace("encuesta/buscarCIF1.do?search=" + val);
+
+	}
+</script>
+
+<script>
+	function newDoc2() {
+
+		var val = document.getElementById("valor").value;
+
+		window.location.replace("encuesta/buscarCIF2.do?search=" + val);
+
+	}
+</script>
+
+<script>
+	function newDoc3() {
+
+		var val = document.getElementById("valor").value;
+
+		window.location.replace("encuesta/buscarCIF3.do?search=" + val);
+
+	}
+</script>
+
+<script>
+	function newDoc4() {
+
+		var val = document.getElementById("valor").value;
+
+		window.location.replace("encuesta/buscarCIF4.do?search=" + val);
+
+	}
+</script>
+
+
+
+<jstl:if test="${requestURI == 'encuesta/buscarTipo1.do'}">
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog">
+			<form:form action="${requestURI}" modelAttribute="tipo1form">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel">Crear nueva empresa
+							de tipo I</h4>
+					</div>
+					<div class="modal-body">
+
+
+
+						<div class="form-group">
+							<label>CIF de la empresa</label>
+							<form:input pattern=".{9,}"
+								title="Son necesarios 9 letras para el CIF" path="cif"
+								class="form-control" maxlength="9" />
+						</div>
+
+
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar
+							ventana</button>
+						<button type="submit" class="btn btn-default" name="save">Crear</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</form:form>
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+</jstl:if>
+
+<jstl:if test="${requestURI == 'encuesta/buscarTipo2.do'}">
+	<!-- Modal -->
+	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog">
+			<form:form action="${requestURI}" modelAttribute="tipo2form">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel">Crear nueva empresa
+							de tipo II</h4>
+					</div>
+					<div class="modal-body">
+
+
+
+						<div class="form-group">
+							<label>CIF de la empresa</label>
+							<form:input pattern=".{9,}"
+								title="Son necesarios 9 letras para el CIF" path="cif"
+								class="form-control" maxlength="9" />
+						</div>
+
+
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar
+							ventana</button>
+						<button type="submit" class="btn btn-default" name="save">Crear</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</form:form>
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+</jstl:if>
+
+<jstl:if test="${requestURI == 'encuesta/buscarTipo3.do'}">
+	<!-- Modal -->
+	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog">
+			<form:form action="${requestURI}" modelAttribute="tipo3form">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel">Crear nueva empresa
+							de tipo III</h4>
+					</div>
+					<div class="modal-body">
+
+
+
+						<div class="form-group">
+							<label>CIF de la empresa</label>
+							<form:input pattern=".{9,}"
+								title="Son necesarios 9 letras para el CIF" path="cif"
+								class="form-control" maxlength="9" />
+						</div>
+
+
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar
+							ventana</button>
+						<button type="submit" class="btn btn-default" name="save">Crear</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</form:form>
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+</jstl:if>
+
+<jstl:if test="${requestURI == 'encuesta/buscarTipo4.do'}">
+	<!-- Modal -->
+	<div class="modal fade" id="myModal4" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog">
+			<form:form action="${requestURI}" modelAttribute="tipo4form">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel">Crear nueva empresa
+							de tipo IV</h4>
+					</div>
+					<div class="modal-body">
+
+
+
+						<div class="form-group">
+							<label>CIF de la empresa</label>
+							<form:input pattern=".{9,}"
+								title="Son necesarios 9 letras para el CIF" path="cif"
+								class="form-control" maxlength="9" />
+						</div>
+
+
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar
+							ventana</button>
+						<button type="submit" class="btn btn-default" name="save">Crear</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</form:form>
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+</jstl:if>
+

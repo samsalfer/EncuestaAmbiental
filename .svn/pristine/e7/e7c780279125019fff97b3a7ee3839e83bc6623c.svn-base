@@ -1,0 +1,243 @@
+package forms;
+
+public class Tipo4FormularioCincoForm {
+
+	// Constructors -----------------------------------------------------------
+
+	public Tipo4FormularioCincoForm() {
+		super();
+	}
+
+	// Attributes--------------------------------------------------------------
+
+	private int customerId;
+
+	// A7
+
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
+	private Integer a711;
+	private Integer a712;
+	private Integer a713;
+	private Integer a714;
+	private Integer a715;
+	private Integer a716;
+	private Integer a721;
+	private Integer a722;
+	private Integer a723;
+	private Integer a724;
+	private Integer a725;
+	private Integer a726;
+
+	private Integer a7211;
+	private Integer a7212;
+	private Integer a7213;
+	private Integer a7214;
+	private Integer a7215;
+	private Integer a7216;
+	private Integer a7217;
+	private Integer a7218;
+	private Integer a7219;
+	private Integer a72110;
+	private Integer a72111;
+	private Integer a72112;
+
+	public Integer getA711() {
+		return a711;
+	}
+
+	public void setA711(Integer a711) {
+		this.a711 = a711;
+	}
+
+	public Integer getA712() {
+		return a712;
+	}
+
+	public void setA712(Integer a712) {
+		this.a712 = a712;
+	}
+
+	public Integer getA713() {
+		return a713;
+	}
+
+	public void setA713(Integer a713) {
+		this.a713 = a713;
+	}
+
+	public Integer getA714() {
+		return a714;
+	}
+
+	public void setA714(Integer a714) {
+		this.a714 = a714;
+	}
+
+	public Integer getA715() {
+		return a715;
+	}
+
+	public void setA715(Integer a715) {
+		this.a715 = a715;
+	}
+
+	public Integer getA716() {
+		return a716;
+	}
+
+	public void setA716(Integer a716) {
+		this.a716 = a716;
+	}
+
+	public Integer getA721() {
+		return a721;
+	}
+
+	public void setA721(Integer a721) {
+		this.a721 = a721;
+	}
+
+	public Integer getA722() {
+		return a722;
+	}
+
+	public void setA722(Integer a722) {
+		this.a722 = a722;
+	}
+
+	public Integer getA723() {
+		return a723;
+	}
+
+	public void setA723(Integer a723) {
+		this.a723 = a723;
+	}
+
+	public Integer getA724() {
+		return a724;
+	}
+
+	public void setA724(Integer a724) {
+		this.a724 = a724;
+	}
+
+	public Integer getA725() {
+		return a725;
+	}
+
+	public void setA725(Integer a725) {
+		this.a725 = a725;
+	}
+
+	public Integer getA726() {
+		return a726;
+	}
+
+	public void setA726(Integer a726) {
+		this.a726 = a726;
+	}
+
+	public Integer getA7211() {
+		return a7211;
+	}
+
+	public void setA7211(Integer a7211) {
+		this.a7211 = a7211;
+	}
+
+	public Integer getA7212() {
+		return a7212;
+	}
+
+	public void setA7212(Integer a7212) {
+		this.a7212 = a7212;
+	}
+
+	public Integer getA7213() {
+		return a7213;
+	}
+
+	public void setA7213(Integer a7213) {
+		this.a7213 = a7213;
+	}
+
+	public Integer getA7214() {
+		return a7214;
+	}
+
+	public void setA7214(Integer a7214) {
+		this.a7214 = a7214;
+	}
+
+	public Integer getA7215() {
+		return a7215;
+	}
+
+	public void setA7215(Integer a7215) {
+		this.a7215 = a7215;
+	}
+
+	public Integer getA7216() {
+		return a7216;
+	}
+
+	public void setA7216(Integer a7216) {
+		this.a7216 = a7216;
+	}
+
+	public Integer getA7217() {
+		return a7217;
+	}
+
+	public void setA7217(Integer a7217) {
+		this.a7217 = a7217;
+	}
+
+	public Integer getA7218() {
+		return a7218;
+	}
+
+	public void setA7218(Integer a7218) {
+		this.a7218 = a7218;
+	}
+
+	public Integer getA7219() {
+		return a7219;
+	}
+
+	public void setA7219(Integer a7219) {
+		this.a7219 = a7219;
+	}
+
+	public Integer getA72110() {
+		return a72110;
+	}
+
+	public void setA72110(Integer a72110) {
+		this.a72110 = a72110;
+	}
+
+	public Integer getA72111() {
+		return a72111;
+	}
+
+	public void setA72111(Integer a72111) {
+		this.a72111 = a72111;
+	}
+
+	public Integer getA72112() {
+		return a72112;
+	}
+
+	public void setA72112(Integer a72112) {
+		this.a72112 = a72112;
+	}
+
+}

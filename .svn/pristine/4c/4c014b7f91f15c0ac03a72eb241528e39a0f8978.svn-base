@@ -1,0 +1,688 @@
+<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+
+        <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core" %>
+            <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+                <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+                    <%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+                        <%@taglib prefix="display" uri="http://displaytag.sf.net" %>
+                            <%@taglib prefix="acme" tagdir="/WEB-INF/tags" %>
+
+<body onload="checkbox3(); cpConCinco();">
+                                <div id="page-wrapper" style="margin-left: 50px;margin-right: 50px;">
+                                    <form:form action="${requestURI}" modelAttribute="formularioUnoForm"  onsubmit="return validate()" id="commentForm">
+                                        <form:hidden path="customerId" />
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-1" style="margin-top: 15px;">
+                                                &nbsp;
+                                            </div>
+                                            <div class="col-lg-3 col-md-5" style="margin-top: 15px;">
+                                                <img src="back/img/europa1.gif" class="img-responsive" alt="Europa">
+                                            </div>
+                                            <div class="col-lg-3 col-md-5" style="margin-top: 15px;">
+                                                <img src="back/img/junta1.png" class="img-responsive" alt="Junta de andalucia">
+                                            </div>
+                                            <div class="col-lg-3 col-md-1" style="margin-top: 15px;">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <h1 class="page-header">Encuesta sobre Actividad Econ&oacutemica y Medio Ambiente en Andaluc&iacutea 2014 (1/6)</h1>
+                                                <ul class="errorMessages"></ul>
+                                            </div>
+                                            <!-- /.col-lg-12 -->
+                                        </div>
+                                        <!-- /.row -->
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <b>A1. Datos de identificaci&oacuten</b>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                    <div class="alert alert-success">
+                                                            El campo Código Municipal está deshabilitado para que sea cumplimentado automáticamente.
+                                                        </div>
+                                                        <div class="row">
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label for="name">Nombre o raz&oacuten social de la empresa</label>
+                                                                    <form:input id="name" required="true" path="nombreEmpresa" class="form-control" />
+                                                                    <form:errors cssClass="error" path="nombreEmpresa" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <div class="form-group">
+                                                                    <label>Acr&oacutenimo</label>
+                                                                    <form:input path="acronimo" class="form-control" />
+                                                                    <form:errors cssClass="error" path="acronimo" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <div class="form-group">
+                                                                    <label for="cif">CIF/NIF</label>
+                                                                    <form:input id="cif" path="nif" class="form-control" rangelength="9,9" required="true" />
+                                                                    <form:errors cssClass="error" path="nif" />
+                                                                </div>
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-7">
+                                                                <div class="form-group">
+                                                                    <label>Direcci&oacuten de la empresa</label>
+                                                                    <form:input path="direccion" class="form-control" />
+                                                                    <form:errors cssClass="error" path="direccion" />
+                                                                    <p class="help-block">(calle, portal, piso, puerta)</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <div class="form-group">
+                                                                    <label for="cp">C&oacutedigo Postal</label>
+                                                                    <form:input id="cp" type="number" path="codigoPostal" class="form-control" rangelength="5,5" />
+                                                                    <form:errors cssClass="error" path="codigoPostal" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                &nbsp;
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label>Municipio</label>
+<%--                                                                     <form:select path="municipio" id="municipio" class="selectpicker bs-select-hidden" data-live-search="true"> --%>
+																				
+<%--                                                                     </form:select> --%>
+																<form:select id="municipio" path="municipio" class="form-control" onchange="codMunicipio()">
+																<form:options
+																	items="${municipios}"
+																	itemLabel="municipio"
+																	itemValue="municipio"/>
+															</form:select>
+															   <p id="errorMunicipio" hidden="true" style="color: #d9534f">Seleccione un municipio</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label>Provincia</label>
+                                                                    <form:select path="provincia" id="provincia" data-live-search="true" class="form-control">
+                                                                         <form:option value='Selecciona' >Selecciona</form:option><form:option value='A Coruña' >A Coruña</form:option><form:option value='álava'>Álava</form:option><form:option value='Albacete' >Albacete</form:option> <form:option value='Alicante'>Alicante</form:option> <form:option value='Almería' >Almería</form:option> <form:option value='Asturias' >Asturias</form:option> <form:option value='ávila' >Ávila</form:option> <form:option value='Badajoz' >Badajoz</form:option> <form:option value='Barcelona'>Barcelona</form:option> <form:option value='Burgos' >Burgos</form:option> <form:option value='Cáceres' >Cáceres</form:option> <form:option value='Cádiz' >Cádiz</form:option> <form:option value='Cantabria' >Cantabria</form:option> <form:option value='Castellón' >Castellón</form:option> <form:option value='Ceuta' >Ceuta</form:option> <form:option value='Ciudad Real' >Ciudad Real</form:option> <form:option value='Córdoba' >Córdoba</form:option> <form:option value='Cuenca' >Cuenca</form:option> <form:option value='Gerona' >Gerona</form:option> <form:option value='Girona' >Girona</form:option> <form:option value='Las Palmas' >Las Palmas</form:option> <form:option value='Granada' >Granada</form:option> <form:option value='Guadalajara' >Guadalajara</form:option> <form:option value='Guipúzcoa' >Guipúzcoa</form:option> <form:option value='Huelva' >Huelva</form:option> <form:option value='Huesca' >Huesca</form:option> <form:option value='Jaén' >Jaén</form:option> <form:option value='La Rioja' >La Rioja</form:option> <form:option value='León' >León</form:option> <form:option value='Lleida' >Lleida</form:option> <form:option value='Lugo' >Lugo</form:option> <form:option value='Madrid' >Madrid</form:option> <form:option value='Malaga' >Málaga</form:option> <form:option value='Mallorca' >Mallorca</form:option> <form:option value='Melilla' >Melilla</form:option> <form:option value='Murcia' >Murcia</form:option> <form:option value='Navarra' >Navarra</form:option> <form:option value='Orense' >Orense</form:option> <form:option value='Palencia' >Palencia</form:option> <form:option value='Pontevedra'>Pontevedra</form:option> <form:option value='Salamanca'>Salamanca</form:option> <form:option value='Segovia' >Segovia</form:option> <form:option value='Sevilla' >Sevilla</form:option> <form:option value='Soria' >Soria</form:option> <form:option value='Tarragona' >Tarragona</form:option> <form:option value='Tenerife' >Tenerife</form:option> <form:option value='Teruel' >Teruel</form:option> <form:option value='Toledo' >Toledo</form:option> <form:option value='Valencia' >Valencia</form:option> <form:option value='Valladolid' >Valladolid</form:option> <form:option value='Vizcaya' >Vizcaya</form:option> <form:option value='Zamora' >Zamora</form:option> <form:option value='Zaragoza'>Zaragoza</form:option>
+                                                                    </form:select>
+                                                                 <p id="errorProvincia" hidden="true" style="color: #d9534f">Seleccione una provincia</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <div class="form-group">
+                                                                    <label>C&oacutedigo Municipal</label>
+                                                                    <form:input id="codigoMunicipal" path="codigoMunicipal" class="form-control" readOnly="true" />
+                                                                    <form:errors cssClass="error" path="codigoMunicipal" />
+                                                                </div>
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-2">
+                                                                <div class="form-group">
+                                                                    <label for="telEmpr">Tel&eacutefono</label>
+                                                                    <form:input type="number" id="telEmpr" path="telefonoEmpresa" class="form-control" rangelength="9,9"  />
+                                                                    <form:errors cssClass="error" path="telefonoEmpresa" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <div class="form-group">
+                                                                    <label for="fax">Fax</label>
+                                                                    <form:input type="number" id="fax" path="faxEmpresa" class="form-control" rangelength="9,9"  />
+                                                                    <form:errors cssClass="error" path="faxEmpresa" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label for="mail">Correo electr&oacutenico</label>
+                                                                    <form:input id="mail" type="email" path="correoElectronicoEmpresa" class="form-control" />
+                                                                    <form:errors cssClass="error" path="correoElectronicoEmpresa" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label>P&aacutegina web</label>
+                                                                    <form:input path="web" class="form-control" />
+                                                                    <form:errors cssClass="error" path="web" />
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- /Tab12 -->
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-12">
+                                                                &nbsp;
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-12">
+                                                                <h4>Persona de contacto a quien dirigirse, en caso necesario, para consultas, aclaraciones o modificaciones sobre este cuestionario:</h4>
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-12">
+                                                                &nbsp;
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label>Sr./Sra.</label>
+                                                                    <form:input path="nombrePersona" class="form-control" />
+                                                                    <form:errors cssClass="error" path="nombrePersona" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label>Cargo que ocupa</label>
+                                                                    <form:input path="cargo" class="form-control" />
+                                                                    <form:errors cssClass="error" path="cargo" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <div class="form-group">
+                                                                    <label>Tel&eacutefono</label>
+                                                                    <form:input type="number" path="telefonoPersona" class="form-control" rangelength="9,9"  />
+                                                                    <form:errors cssClass="error" path="telefonoPersona" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                &nbsp;
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label>Correo electr&oacutenico</label>
+                                                                    <form:input type="email" path="correoElectronicoPersona" class="form-control" />
+                                                                    <form:errors cssClass="error" path="correoElectronicoPersona" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <div class="form-group">
+                                                                    <label>Fax</label>
+                                                                    <form:input type="number" path="faxPersona" class="form-control" rangelength="9,9"   />
+                                                                    <form:errors cssClass="error" path="faxPersona" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                &nbsp;
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+
+                                                        </div>
+                                                        <!-- /.row (nested) -->
+                                                    </div>
+                                                    <!-- /.panel-body -->
+                                                </div>
+                                                <!-- /.panel -->
+                                            </div>
+                                            <!-- /.col-lg-12 -->
+                                        </div>
+                                        <!-- /.row -->
+
+                                        <!-- /.row -->
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <b>A2. Clase de empresas</b>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="alert alert-success">
+                                                            Se&ntildeale el recuadro que corresponda. En caso de que la empresa tenga titularidad p&uacuteblica, indique la entidad y el porcentaje de participaci&oacuten.
+                                                        </div>
+                                                        <div class="row" style="margin-top: -25px;">
+                                                        
+                                                        <h4 id="errorModalidad" hidden="true" style="color:#d9534f;margin-left: 15px;margin-top: 25px;">Marque alguna modalidad</h4>
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <div class="checkbox">
+                                                                        <label>
+                                                                            <acme:checkbox id="check1" path="privadaNacional" onchange="checkbox1()"/>Privada nacional
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <div class="checkbox">
+                                                                        <label>
+                                                                            <acme:checkbox id="check2" path="privadaMultinacional" onchange="checkbox2()" />Privada multinacional (al menos un 50% de capital extranjero)
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12">
+                                                                <div class="form-group">
+                                                                    <div class="checkbox">
+                                                                        <label>
+                                                                            <acme:checkbox id="check3" path="publica" onchange="checkbox3()"/> Con titularidad p&uacuteblica
+                                                                        </label>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-12">
+                                                                &nbsp;
+                                                            </div>
+                                                            <!-- /Tab12 -->
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-12">
+                                                                &nbsp;
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-1">
+                                                                &nbsp;
+                                                            </div>
+                                                            <div class="col-lg-5">
+                                                                <p><b>Administraciones P&uacuteblicas que participan:</b></p>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                &nbsp;
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <p><b>% de participaci&oacuten</b></p>
+                                                            </div>
+                                                            <div class="col-lg-1">
+                                                                &nbsp;
+                                                            </div>
+                                                            
+                                                             
+                                                            <!-- /Tab12 -->
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-1">
+                                                                &nbsp;
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <p align="right">1.</p>
+                                                            </div>
+                                                            <div class="col-lg-7">
+                                                                <div class="form-group">
+                                                                    <form:input id="publica1" path="participacionPublica1" class="form-control" disabled="true" required="true"/>
+                                                                    <form:errors cssClass="error" path="participacionPublica1" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <div class="form-group input-group">
+                                                                    <form:input id="publica11" path="porcentajeParticipacion1" class="form-control" disabled="true" min="0" max="100" required="true"/>
+                                                                    <span class="input-group-addon">%</span>
+                                                                    <form:errors cssClass="error" path="porcentajeParticipacion1" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-1">
+                                                                &nbsp;
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-1">
+                                                                &nbsp;
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <p align="right">2.</p>
+                                                            </div>
+                                                            <div class="col-lg-7">
+                                                                <div class="form-group">
+                                                                    <form:input id="publica2" path="participacionPublica2" class="form-control" disabled="true"/>
+                                                                    <form:errors cssClass="error" path="participacionPublica2" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <div class="form-group input-group">
+                                                                    <form:input id="publica21" path="porcentajeParticipacion2" class="form-control" min="0" max="100" disabled="true"/>
+                                                                    <span class="input-group-addon">%</span>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-1">
+                                                                &nbsp;
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-1">
+                                                                &nbsp;
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <p align="right">3.</p>
+                                                            </div>
+                                                            <div class="col-lg-7">
+                                                                <div class="form-group">
+                                                                    <form:input id="publica3" path="participacionPublica3" class="form-control" disabled="true"/>
+                                                                    <form:errors cssClass="error" path="participacionPublica3" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <div class="form-group input-group">
+                                                                    <form:input id="publica31" path="porcentajeParticipacion3" class="form-control" min="0" max="100" disabled="true"/>
+                                                                    <span class="input-group-addon">%</span>
+                                                                    <form:errors cssClass="error" path="porcentajeParticipacion3" />
+                                                                </div>
+                                                            </div>
+                                                           
+                                                            <div class="col-lg-1">
+                                                                &nbsp;
+                                                                
+                                                            </div>
+                                                            <!-- /Tab12 -->
+																
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-12">
+                                                            
+                                                                &nbsp;
+                                                            </div>
+                                                            <!-- /Tab12 -->
+															
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-5">
+                                                             <h3 id="errorCien" hidden="true" style="color: #d9534f">El porcentaje total participación debe ser 100%</h3>
+                                                                &nbsp;
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <button type="submit" class="btn btn-default" name="save">Siguiente paso</button>
+                                                            </div>
+                                                            <div class="col-lg-5">
+                                                                &nbsp;
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+                                                            <!-- Tab12 -->
+                                                            <div class="col-lg-12">
+                                                                &nbsp;
+                                                            </div>
+                                                            <!-- /Tab12 -->
+
+
+
+
+                                                        </div>
+                                                        <!-- /.row (nested) -->
+                                                        <div class="alert alert-success">
+                                                            <jstl:out value=""></jstl:out>
+                                                            <h4><b>Naturaleza, caracter&iacutesticas y finalidad</b></h4>
+                                                            <p align="justify">Esta encuesta se enmarca dentro del proyecto <b>Estad&iacutestica sobre Actividad Econ&oacutemica y Medio  Ambiente en Andaluc&iacutea</b> incluido en el Plan Estad&iacutestico de Andaluc&iacutea 2013-2017. La finalidad de la encuesta es obtener informaci&oacuten sobre actividad econ&oacutemica y empleo ambientales en Andaluc&iacutea. El presente cuestionario est&aacute dirigido a los establecimientos productores de bienes y servicios ambientales localizados en Andaluc&iacutea, al objeto de recabar informaci&oacuten sobre facturaci&oacuten y empleo en actuaciones ambientales.</p>
+                                                            <br>
+                                                                <div class="col-lg-6" align="left" style="padding-left: 0px;">
+                                                                <h4><b>Legislaci&oacuten</b></h4>
+                                                            </div>
+                                                            <div class="col-lg-6" align="right" style="padding-right: 0px;">
+                                                                <h4><b>Estad&iacutestica de cumplimentaci&oacuten obligatoria</b></h4>
+                                                            </div>
+                                                            <br>
+                                                            <p align="justify"><b>Secreto estad&iacutestico</b></p>
+                                                            <p align="justify">Ser&aacuten objeto de protecci&oacuten y quedar&aacuten amparados por el <b>secreto estad&iacutestico</b> todos los datos de &iacutendole privada que se utilicen en la actividad estad&iacutestica (art. 9.2 de la Ley 4/1989, de 12 de diciembre, de Estad&iacutestica de la Comunidad Aut&oacutenoma de Andaluc&iacutea). Todo el personal u &oacutergano de la Administraci&oacuten andaluza, as&iacute como los agentes colaboradores ajenos a la misma, que intervengan en la actividad estad&iacutestica, tendr&aacuten la obligaci&oacuten de mantener el secreto estad&iacutestico (arts. 11 y 13 de la Ley 4/1989).</p>
+                                                            <br>
+                                                            <h4><b>Obligaci&oacuten de facilitar datos</b></h4>
+                                                            <p align="justify">Ser&aacute obligatorio suministrar la informaci&oacuten necesaria para la elaboraci&oacuten de las estad&iacutesticas oficiales. Dicha obligaci&oacuten se extender&aacute a todas las personas privadas, f&iacutesicas o jur&iacutedicas que tengan su domicilio, residencia o actividad en el territorio de Andaluc&iacutea. La obligaci&oacuten se extiende tambi&eacuten a todas las administraciones y entidades p&uacuteblicas en lo que se refiere a las actividades llevadas a cabo dentro del territorio de la comunidad aut&oacutenoma de Andaluc&iacutea (arts. 14.1 y 14.2 de la Ley 4/1989).</p>
+                                                            <p align="justify"><b>El incumplimiento</b> de las obligaciones establecidas en la referida Ley constituye infracci&oacuten administrativa en materia de estad&iacutestica en la Comunidad Aut&oacutenoma de Andaluc&iacutea, y <b>ser&aacute sancionado</b> de acuerdo con lo dispuesto en la norma. Las infracciones muy graves ser&aacuten sancionadas con multas de <b>3.005,07 a 30.050,61 &#8364;</b>; las infracciones graves se sancionar&aacuten con multas de <b>300,52 a 3.005,06 &#8364;</b>; las infracciones leves se sancionar&aacuten con multas de hasta <b>300,51 &#8364</b> (arts. 43 y 46 de la Ley 4/1989).</p>
+                                                            <br>
+                                                            <h4><b>Instrucciones generales y notas aclaratorias</b></h4>
+                                                            <p align="justify"><b>Unidad de informaci&oacuten:</b> Si bien los datos de identificaci&oacuten de la portada corresponden a la raz&oacuten social de la empresa, <b>la informaci&oacuten econ&oacutemica y de empleo que se solicita en este cuestionario debe corresponder exclusivamente a los establecimientos de la empresa que desarrollan una actividad ambiental en Andaluc&iacutea</b></p>
+                                                            <p align="justify"><b>Per&iacuteodo de referencia:</b> Los datos deben referirse al a&ntildeo <b>2014</b>. En el caso de no cerrarse el ejercicio contable a 31/12/2014, los datos se referir&aacuten al ejercicio contable con mayor n&uacutemero de meses en el a&ntildeo 2014, indic&aacutendose esta incidencia en el apartado Observaciones.</p>
+                                                            <p align="justify"><b>Forma de anotar los datos:</b> Cumplimente los datos claramente. Los datos econ&oacutemicos se anotar&aacuten en euros; en caso de anotar los datos en <b>miles de euros, se indicar&aacute en el apartado <b>Observaciones.</b></p>
+                                                            <p align="justify"><b>Notas aclaratorias</b>: Se incluye definiciones y ejemplos relativos a los distintos apartados del cuestionario en el <b>Anexo al mismo.</b></p>
+                                                            <p align="justify"><b>Plazo de remisi&oacuten</b>: Este cuestionario cumplimentado con la informaci&oacuten solicitada debe ser devuelto en un plazo no superior a <b>20 d&iacuteas.</b></p>
+
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.panel-body -->
+                                                </div>
+                                                <!-- /.panel -->
+                                            </div>
+                                            <!-- /.col-lg-12 -->
+                                        </div>
+                                        <!-- /.row -->
+                                    </form:form>
+                                </div>
+
+
+<script type="text/javascript">
+   
+	function checkbox1() {
+		
+		publica1 = document.getElementById("publica1");
+		publica11 = document.getElementById("publica11");
+		publica2 = document.getElementById("publica2");
+		publica21 = document.getElementById("publica21");
+		publica3 = document.getElementById("publica3");
+		publica31 = document.getElementById("publica31");
+		
+		check1 = document.getElementById("check1");
+	    check2 = document.getElementById("check2");
+	    check3 = document.getElementById("check3");
+	    
+	    if (check1.checked) {
+	    	check2.checked=false;
+	    	check3.checked=false;
+	    	publica1.disabled=true;
+	    	publica11.disabled=true;
+	    	publica2.disabled=true;
+	    	publica21.disabled=true;
+	    	publica3.disabled=true;
+	    	publica31.disabled=true;
+	
+	    }
+	}
+	
+	function checkbox2() {
+		
+		publica1 = document.getElementById("publica1");
+		publica11 = document.getElementById("publica11");
+		publica2 = document.getElementById("publica2");
+		publica21 = document.getElementById("publica21");
+		publica3 = document.getElementById("publica3");
+		publica31 = document.getElementById("publica31");
+		
+		check1 = document.getElementById("check1");
+	    check2 = document.getElementById("check2");
+	    check3 = document.getElementById("check3");
+	    
+	    if (check2.checked) {
+	    	check1.checked=false;
+	    	check3.checked=false;
+	    	publica1.disabled=true;
+	    	publica11.disabled=true;
+	    	publica2.disabled=true;
+	    	publica21.disabled=true;
+	    	publica3.disabled=true;
+	    	publica31.disabled=true;
+	
+	    }
+	}
+	
+	function checkbox3() {
+	    	id="${id}"
+	    	publica1 = document.getElementById("publica1");
+	    	publica11 = document.getElementById("publica11");
+	    	publica2 = document.getElementById("publica2");
+	    	publica21 = document.getElementById("publica21");
+	    	publica3 = document.getElementById("publica3");
+	    	publica31 = document.getElementById("publica31");
+	    	
+	    	check1 = document.getElementById("check1");
+	        check2 = document.getElementById("check2");
+	        check3 = document.getElementById("check3");
+	        if (check3.checked) {
+	        	check1.checked=false;
+	        	check2.checked=false;
+	        	publica1.disabled=false;
+	        	publica11.disabled=false;
+	        	publica2.disabled=false;
+	        	publica21.disabled=false;
+	        	publica3.disabled=false;
+	        	publica31.disabled=false;
+	 
+	        }
+	        else{
+		    	publica1.disabled=true;
+		    	publica11.disabled=true;
+		    	publica2.disabled=true;
+		    	publica21.disabled=true;
+		    	publica3.disabled=true;
+		    	publica31.disabled=true;	        	
+	        	
+	        }
+	        
+	    	
+       
+    }
+</script>
+
+<script type="text/javascript">
+   
+	function validate() {
+		res=validateModalidades();
+		validatePublicas();
+		return res;
+	}
+   
+	function validatePublicas() {
+		publica2 = document.getElementById("publica2");
+		publica21 = document.getElementById("publica21");
+		publica3 = document.getElementById("publica3");
+		publica31 = document.getElementById("publica31");
+		
+		if(publica2.value.length>0){
+			publica21.required=true;
+		}
+		else{
+			publica21.required=false;
+		}
+		
+		if(publica21.value.length>0 && publica21.value!=0){
+			publica2.required=true;
+		}
+		else{
+			publica2.required=false;
+		}
+		if(publica3.value.length>0){
+			publica31.required=true;
+		}
+		else{
+			publica31.required=false;
+		}
+		if(publica31.value.length>0 && publica31.value!=0){
+			publica3.required=true;
+		}
+		else{
+			publica3.required=false;
+		}
+		
+	}
+	
+	function validateModalidades(){
+		res=true;
+    	check1 = document.getElementById("check1");
+        check2 = document.getElementById("check2");
+        check3 = document.getElementById("check3");
+        provincia = document.getElementById("provincia");
+        errorMunicipio = document.getElementById("errorMunicipio");
+        errorModalidad = document.getElementById("errorModalidad");
+        errorProvincia = document.getElementById("errorProvincia");
+		var indice = document.getElementById("municipio").selectedIndex
+		var muni = document.getElementById("municipio");
+		if(check1.checked==false && check2.checked==false &&check3.checked==false){
+			errorModalidad.hidden=false;
+			res=false;
+		}
+		else{
+			errorModalidad.hidden=true;
+		}
+		
+		
+		if(indice==0){
+			errorMunicipio.hidden=false;
+			muni.focus();
+			res=false;
+		}
+		else{
+			errorMunicipio.hidden=true;
+		}
+		
+		if(provincia.value=="Selecciona"){
+			errorProvincia.hidden=false;
+			provincia.focus();
+			res=false;
+		}
+		else{
+			errorProvincia.hidden=true;
+		}
+		
+		
+// 		//suma NO NECESARIO.
+		
+// 		if (publica11.value.length == 0) {
+// 			publica11.value = 0;
+// 		}
+// 		if (publica21.value.length == 0) {
+// 			publica21.value = 0;
+// 		}
+// 		if (publica31.value.length == 0) {
+// 			publica31.value = 0;
+// 		}
+		
+// 		var total = parseInt(publica11.value) + parseInt(publica21.value)+ parseInt(publica31.value);
+		
+	
+// 		if(total != 100 && check3.checked){
+// 			errorCien.hidden=false;
+// 			res=false;
+// 		}
+// 		else{
+// 			errorCien.hidden=true;
+// 		}
+		
+		return res;
+	}
+	
+	function codMunicipio(){
+		var codigos = ['0','4002', '14001', '4003', '18001', '41001', '14002', '29001', '18002', '41002', '41003', '23001', '4005', '18003', '18004', '4006', '18006', '18007', '18005', '4004', '41004', '11001', '41005', '11002', '23002', '14003', '29002', '23003', '4007', '41006', '4009', '4008', '23004', '18010', '18011', '29003', '29004', '41007', '11003', '18012', '29005', '29006', '11004', '11005', '41008', '4010', '4011', '18013', '29007', '29008', '18014', '4012', '18015', '21002', '41009', '29010', '14004', '18016', '21003', '41010', '4013', '14005', '29011', '21004', '21005', '18017', '29009', '4014', '21006', '29013', '29014', '18904', '18018', '4015', '21001', '23005', '4016', '29015', '21007', '41011', '4017', '29017', '11006', '29018', '29019', '18020', '23006', '23007', '18021', '4018', '21008', '23008', '29020', '23905', '21009', '29021', '18022', '21010', '41012', '41013', '14006', '4019', '41014', '14007', '23009', '23010', '11007', '11008', '4021', '4020', '18023', '23011', '21011', '18024', '18025', '23012', '23902', '23014', '4023', '14008', '14009', '41015', '29022', '4024', '29023', '29024', '29025', '11901', '18027', '18028', '29026', '18029', '14010', '29027', '11009', '29028', '29029', '23016', '4026', '4027', '4028', '4029', '21012', '14011', '41016', '21013', '21014', '29030', '41017', '11010', '11011', '41018', '18032', '14012', '29031', '41019', '18033', '4022', '23015', '18030', '41020', '21015', '14013', '23017', '18034', '21016', '18114', '21017', '18037', '41021', '23018', '41022', '21018', '23019', '29032', '21019', '18038', '23020', '18039', '29033', '29034', '4030', '41023', '4031', '18042', '18043', '4032', '23021', '14015', '14016', '14017', '41024', '23024', '14018', '29036', '41025', '29037', '21021', '29039', '29040', '29041', '41026', '21022', '23025', '11013', '41027', '41028', '41029', '41030', '41031', '23026', '18045', '18046', '4033', '14019', '23027', '41032', '23028', '41901', '21020', '14014', '29035', '18047', '21023', '18059', '4036', '11015', '23029', '23030', '18061', '11016', '4037', '21030', '18062', '18048', '18049', '18050', '29043', '18051', '29044', '11014', '14020', '41033', '41034', '41035', '41036', '41037', '21024', '21025', '21026', '18053', '29046', '18054', '29042', '41903', '29047', '4035', '29048', '18912', '29049', '21027', '21028', '21029', '18035', '11012', '18036', '23901', '29038', '18044', '18040', '4034', '29045', '14021', '18056', '18057', '29050', '4038', '18063', '18064', '18066', '18067', '41038', '14023', '14022', '18068', '18069', '18070', '18071', '4902', '21031', '14024', '4041', '21032', '23031', '18072', '41040', '14025', '23032', '11017', '14026', '41041', '29051', '29052', '4043', '14027', '18074', '4044', '4045', '4046', '18076', '23033', '18078', '29053', '29054', '23034', '14031', '29055', '21033', '14028', '14029', '14030', '41042', '18079', '23035', '18905', '21034', '18082', '4048', '41043', '4049', '11018', '29056', '41044', '29057', '41045', '21035', '41046', '41047', '18083', '18085', '18086', '18087', '21036', '21037', '14032', '11019', '18088', '41048', '14033', '18089', '18906', '18093', '23038', '29058', '23039', '14034', '41049', '4047', '23037', '4050', '18084', '18094', '18095', '41050', '23041', '21038', '21039', '23042', '21040', '14035', '14036', '23043', '23044', '21041', '23045', '29059', '4051', '18096', '18097', '4053', '4052', '18098', '18099', '18100', '18101', '41051', '23046', '29060', '4054', '18102', '4055', '23047', '21042', '41902', '29061', '18103', '18105', '29062', '23048', '14037', '23049', '21043', '23051', '18107', '23050', '11020', '18108', '18109', '23052', '11021', '29063', '29064', '18111', '18112', '23053', '29065', '23040', '18116', '18117', '41052', '4056', '23054', '41053', '18119', '18120', '21044', '23055', '21045', '18121', '18122', '23056', '41054', '41055', '4059', '4060', '14038', '21046', '18123', '41056', '23057', '14039', '18115', '4057', '4058', '11022', '4061', '18124', '4062', '29066', '41057', '41058', '41059', '18126', '23058', '29068', '21047', '18127', '29069', '18128', '41060', '41061', '21048', '23059', '23060', '41062', '4063', '11023', '23061', '29070', '21049', '29071', '18132', '21050', '4903', '4064', '41063', '29072', '18133', '18134', '29073', '14040', '18135', '29074', '18136', '41064', '14041', '14042', '18137', '23062', '14043', '14044', '18138', '18909', '14045', '41065', '18140', '18141', '29067', '4065', '21051', '41066', '23063', '29075', '21052', '18903', '21053', '18143', '23064', '14046', '4066', '18144', '14047', '18145', '4067', '29076', '41067', '4068', '4069', '11024', '18146', '23065', '4070', '41068', '18149', '18148', '18150', '4071', '41069', '14048', '21054', '14049', '41070', '21055', '18151', '41071', '29077', '4072', '21056', '4073', '11025', '21057', '23066', '4074', '41072', '14050', '14051', '18152', '41073', '23067', '18153', '29079', '18154', '41074', '14052', '41075', '18910', '18157', '18158', '29080', '18162', '18161', '23069', '14053', '23070', '14054', '11026', '14055', '41076', '41077', '18164', '21058', '41078', '41079', '23071', '14056', '23072', '11027', '21059', '11028', '11029', '29081', '18165', '4075', '21060', '4076', '18167', '18159', '18163', '23073', '18168', '14057', '41080', '41081', '29082', '29083', '4078', '21061', '41082', '29084', '41083', '4079', '21062', '11030', '41084', '18170', '23074', '14058', '4077', '23075', '18171', '29085', '18173', '41085', '21063', '11031', '11902', '41086', '21064', '11032', '21065', '41087', '41088', '11033', '14059', '21066', '21067', '21068', '18174', '4080', '23076', '14060', '14061', '18175', '4081', '21069', '23904', '23077', '41089', '23079', '23080', '41090', '29086', '29087', '23081', '4082', '4083', '11034', '41091', '29088', '4084', '23082', '4085', '18176', '4086', '23084', '18177', '4087', '4088', '4089', '18901', '4090', '11035', '29089', '4091', '41092', '29090', '41093', '18178', '11036', '23085', '14062', '23086', '23087', '29901', '23088', '23090', '23091', '29091', '18179', '29092', '11037', '4901', '18180', '21070', '4093', '4094', '18181', '4092', '11038', '18182', '4095', '41094', '4096', '41095', '21071', '23093', '18914', '41096', '14063', '18902', '29093', '18907', '14064', '21072', '18911', '11039', '4097', '18185', '4100', '4101', '14065', '23094', '21073', '23095', '14066', '14067', '14068', '21074', '11040', '41097', '11041', '18908', '29095', '14069', '29902', '23096', '41098', '23097', '21075', '18187', '14070', '21076', '14071', '29096', '41099', '29097', '41100', '29098', '18188', '14072', '23098', '23099', '21077', '23101', '23903', '41101', '14073', '14074', '41102', '29099', '18183', '4098', '29094', '4099', '18184', '4102', '18189', '29100', '18192', '18913', '11042', '21078', '18193', '21079', '14075', '4103', '18194', '29012', '29016', '41039', '18147', '23092'];
+		var indice = document.getElementById("municipio").selectedIndex;
+				
+		var municipio = document.getElementById("codigoMunicipal").value=codigos[indice];
+		
+		
+		
+	}
+     
+	function cpConCinco(){
+		var codigoPostal = document.getElementById("cp")
+		
+		if(codigoPostal.value.length == 4){
+			
+			codigoPostal.value="0"+codigoPostal.value;
+		}
+		if(codigoPostal.value.length == 3){
+			
+			codigoPostal.value="00"+codigoPostal.value;
+		}
+		
+		
+		
+	}
+
+ 
+</script>

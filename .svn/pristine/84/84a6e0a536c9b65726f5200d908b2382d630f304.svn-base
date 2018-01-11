@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles.xml
+ *
+ * Copyright (C) 2013 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+
+	<definition name="encuesta/paginaUnoCrear" extends="master.page.back">	
+		<put-attribute name="body" value="/views/back/paginaUno.jsp" />
+	</definition>
+	
+	<definition name="encuesta/paginaUnoEditar" extends="master.page.back">	
+		<put-attribute name="body" value="/views/back/paginaUno.jsp" />
+	</definition>
+	
+	<definition name="encuesta/paginaDos" extends="master.page.back">	
+		<put-attribute name="body" value="/views/back/paginaDos.jsp" />
+	</definition>
+	
+	<definition name="encuesta/paginaTres" extends="master.page.back">	
+		<put-attribute name="body" value="/views/back/paginaTres.jsp" />
+	</definition>
+	
+	<definition name="encuesta/paginaCuatro" extends="master.page.back">	
+		<put-attribute name="body" value="/views/back/paginaCuatro.jsp" />
+	</definition>
+	
+	<definition name="encuesta/paginaCinco" extends="master.page.back">	
+		<put-attribute name="body" value="/views/back/paginaCinco.jsp" />
+	</definition>
+	
+	<definition name="encuesta/paginaSeis" extends="master.page.back">	
+		<put-attribute name="body" value="/views/back/paginaSeis.jsp" />
+	</definition>
+	
+	<definition name="encuesta/paginaSiete" extends="master.page.back">	
+		<put-attribute name="body" value="/views/back/paginaSiete.jsp" />
+	</definition>
+	
+	<definition name="encuesta/paginaOcho" extends="master.page.back">	
+		<put-attribute name="body" value="/views/back/paginaOcho.jsp" />
+	</definition>
+	
+	<definition name="encuesta/dashboard" extends="master.page.back">
+		<put-attribute name="body" value="/views/back/dashboard.jsp" />
+	</definition>
+	
+	<definition name="encuesta/bienvenida" extends="master.page.back">	
+		<put-attribute name="body" value="/views/back/bienvenida.jsp" />
+	</definition>
+	
+	<definition name="encuesta/gracias" extends="master.page.back">	
+		<put-attribute name="body" value="/views/back/gracias.jsp" />
+	</definition>
+	
+	<definition name="encuesta/buscar" extends="master.page.back">	
+		<put-attribute name="body" value="/views/back/buscar.jsp" />
+	</definition>
+	
+</tiles-definitions>

@@ -1,0 +1,1080 @@
+<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+
+        <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core" %>
+            <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+                <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+                    <%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+                        <%@taglib prefix="display" uri="http://displaytag.sf.net" %>
+                            <%@taglib prefix="acme" tagdir="/WEB-INF/tags" %>
+
+
+
+<div id="page-wrapper" style="margin-left: 50px; margin-right: 50px;">
+	<form:form action="${requestURI}" modelAttribute="formularioCincoForm"
+		id="commentForm" onsubmit="return validate5()">
+		<form:hidden path="customerId" />
+		<div class="row">
+			<div class="col-lg-3 col-md-1" style="margin-top: 15px;">
+				&nbsp;</div>
+			<div class="col-lg-3 col-md-5" style="margin-top: 15px;">
+				<img src="back/img/europa1.gif" class="img-responsive" alt="Europa">
+			</div>
+			<div class="col-lg-3 col-md-5" style="margin-top: 15px;">
+				<img src="back/img/junta1.png" class="img-responsive"
+					alt="Junta de andalucia">
+			</div>
+			<div class="col-lg-3 col-md-1" style="margin-top: 15px;">
+				&nbsp;</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<h1 class="page-header">Encuesta sobre Actividad
+					Econ&oacutemica y Medio Ambiente en Andaluc&iacutea 2014 (5/6)</h1>
+				<ul class="errorMessages"></ul>
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<b>A7. Empleo</b>
+					</div>
+					<div class="panel-body">
+						<div class="alert alert-success">
+							Consigne los datos sobre empleo total y empleo en actividades
+							ambientales <b>del total de los establecimientos/centros de la
+								empresa que desarrollan una actividad ambiental en Andalucía.</b> En
+							<b>empleo en actividades ambientales</b> se contabiliza a
+							aquellas personas que trabajan exclusivamente en alguna de las
+							actividades ambientales (según la clasificación y descripción que
+							figuran en <a href="front/anexo.pdf" target="_blank"><b>Anexo</b></a>)
+							y a aquellas otras que, a tiempo parcial, realizan este tipo de
+							actividades. El número de <b>personas ocupadas</b> corresponde al
+							total de personas dedicadas íntegra o parcialmente a actividades
+							ambientales en el año <b>2014</b> y el número de <b>horas
+								trabajadas</b> se refiere asimismo al <b>total anual</b>. (Véase
+							ejemplo en <a href="front/anexo.pdf" target="_blank"><b>Anexo</b></a>)
+						</div>
+						<div class="row">
+
+							<!-- Tab12 -->
+							<div class="col-lg-12 ">
+
+								<div class="col-lg-2">&nbsp;</div>
+								<div class="col-lg-3">
+									<div class="form-group">
+										<p align="center">
+											<b>Número de personas ocupadas</b>
+										</p>
+									</div>
+								</div>
+
+								<div class="col-lg-6">
+									<div class="form-group">
+										<p align="center">
+											<b>Número de horas trabajadas</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- Tab12 -->
+							<div class="col-lg-12">
+
+								<div class="col-lg-2">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group">
+										<p align="center">
+											<b>Hombres</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group">
+										<p align="center">
+											<b>Mujeres</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group">
+										<p align="center">
+											<b>Total</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<p align="center">
+											<b>Hombres</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<p align="center">
+											<b>Mujeres</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<p align="center">
+											<b>Total</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-1"></div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- Tab12 -->
+							<div class="col-lg-12">
+
+								<div class="col-lg-2">
+									<p>
+										<b>7.1 Empleo total:</b>
+									</p>
+								</div>
+
+								<div class="col-lg-1">
+									<div class="form-group">
+										<form:input id="etNpoHombres" path="a711"
+											class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group">
+										<form:input id="etNpoMujeres" path="a712"
+											class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group">
+										<form:input id="etNpoTotal" path="a713"
+											class="form-control" required="true" min="1" />
+									</div>
+								</div>
+
+								<div class="col-lg-2">
+									<div class="form-group">
+										<form:input id="etNhtHombres" path="a714"
+											class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<form:input id="etNhtMujeres" path="a715"
+											class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<form:input id="etNhtTotal" path="a716"
+											class="form-control" required="true" min="1" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<p id="errorSuma2" hidden="true" style="color: #d9534f">Debe
+										coincidir el total a la suma de mujeres y hombres</p>
+								</div>
+
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- Tab12 -->
+							<div class="col-lg-12">
+
+								<div class="col-lg-2">
+									<p>
+										<b>7.2 Empleo en actividades ambientales:</b>
+									</p>
+								</div>
+
+								<div class="col-lg-1">
+									<div class="form-group">
+										<form:input id="eaaNpoHombres" path="a721"
+											class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group">
+										<form:input id="eaaNpoMujeres" path="a722"
+											class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group">
+										<form:input id="eaaNpoTotal" path="a723"
+											class="form-control" />
+									</div>
+								</div>
+
+								<div class="col-lg-2">
+									<div class="form-group">
+										<form:input id="eaaNhtHombres" path="a724" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<form:input id="eaaNhtMujeres" path="a725" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<form:input id="eaaNhtTotal" path="a726" class="form-control" />
+									</div>
+								</div>
+
+								<div class="col-lg-1">
+									<p id="errorSuma4" hidden="true" style="color: #d9534f">Debe
+										coincidir el total a la suma de mujeres y hombres</p>
+									<p id="errorMayor2" hidden="true" style="color: #d9534f">Total
+										ambiental no puede ser mayor a total</p>
+								</div>
+
+							</div>
+						</div>
+						<!-- /Tab12 -->
+
+						<!-- Tab12 -->
+						<div class="col-lg-12" align="center">
+							<h3 id="errorAmbientalDebeSerCero" hidden="true" style="color: #d9534f">
+								No puede existir empleo ambiental ya que anteriormente lo indic&oacute;</h3>
+							<h3 id="errorSuma1" hidden="true" style="color: #d9534f">La
+								suma del número de personas ocupadas en empleo total es
+								incorrecta</h3>
+							<h3 id="errorSuma3" hidden="true" style="color: #d9534f">La
+								suma del número de personas ocupadas en empleo en actividades
+								ambientales es incorrecta</h3>
+							<h3 id="errorMayor1" hidden="true" style="color: #d9534f">El
+								total de personas ocupadas en actividades ambientales no puede
+								ser mayor al total de personas de empleo total</h3>
+							<h3 id="errorIgualdad" hidden="true" style="color: #d9534f">No
+								pueden ser igual empleo total a empleo en actividad ambiental</h3>
+							<h3 id="errorPg4" hidden="true" style="color: #d9534f">No
+								puede coincidir empleo total con empleo ambiental</h3>
+							<h3 id="errorPg41" hidden="true" style="color: #d9534f">En
+								la p&aacute;gina tres no existe facturacion en actividad
+								ambiental</h3>
+							<h3 id="error18" hidden="true" style="color: #d9534f">El
+								empleo total debe coincidir con el empleo ambiental y el
+								n&uacute;mero de horas total con el ambiental debido a que toda
+								la facturación de la empresa es ambiental</h3>
+						</div>
+
+						<div class="col-lg-12">&nbsp;</div>
+
+						<!-- Tab12 -->
+						<div class="col-lg-12">
+							<div class="form-group">
+								<label>7.2.1. Empleo en actividades ambientales
+									desagregado por categoría profesional:</label>
+								<div class="alert alert-success">Se han agrupado las
+									categorías profesionales atendiendo a los grupos de cotización
+									del Régimen General de la Seguridad Social para contingencias
+									comunes.</div>
+							</div>
+						</div>
+						<!-- /Tab12 -->
+
+						<!-- Tab12 -->
+						<div class="col-lg-12">
+
+							<div class="col-lg-8">&nbsp;</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<p align="center">
+										<b>Número de personas ocupadas</b>
+									</p>
+								</div>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+						</div>
+						<!-- /Tab12 -->
+
+						<!-- Tab12 -->
+						<div class="col-lg-12">
+
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<p align="center">
+										<b>Grupo de cotización de la Seguridad Social</b>
+									</p>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<p align="center">
+										<b>Categoría profesional</b>
+									</p>
+								</div>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<p align="center">
+										<b>Hombres</b>
+									</p>
+								</div>
+							</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<p align="center">
+										<b>Mujeres</b>
+									</p>
+								</div>
+							</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<p align="center">
+										<b>Total</b>
+									</p>
+								</div>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+						</div>
+						<!-- /Tab12 -->
+
+						<!-- Tab12 -->
+						<div class="col-lg-12">
+
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<p align="center">
+										<b>1</b>
+									</p>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<p align="center">Ingenieros y licenciados</p>
+								</div>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<form:input id="hombresIngenieros" path="a7211"
+										class="form-control" />
+								</div>
+							</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<form:input id="mujeresIngenieros" path="a7212"
+										class="form-control" />
+								</div>
+							</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<form:input id="totalIngenieros" path="a7213"
+										class="form-control" />
+									<p id="errorSuma5" hidden="true" style="color: #d9534f">Suma
+										incorrecta</p>
+								</div>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+						</div>
+						<!-- /Tab12 -->
+						<!-- Tab12 -->
+						<div class="col-lg-12">
+
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<p align="center">
+										<b>2</b>
+									</p>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<p align="center">Ingenieros técnicos, peritos y ayudantes
+										titulados</p>
+								</div>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<form:input id="hombresIngenierosTec"
+										path="a7214" class="form-control" />
+								</div>
+							</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<form:input id="mujeresIngenierosTec"
+										path="a7215" class="form-control" />
+								</div>
+							</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<form:input id="totalIngenierosTec" path="a7216"
+										class="form-control" />
+									<p id="errorSuma6" hidden="true" style="color: #d9534f">Suma
+										incorrecta</p>
+								</div>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+						</div>
+						<!-- /Tab12 -->
+						<!-- Tab12 -->
+						<div class="col-lg-12">
+
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<p align="center">
+										<b>3-5</b>
+									</p>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<p align="center">Jefes administrativos y de taller y
+										oficiales administrativos</p>
+								</div>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<form:input id="JefesHombes" path="a7217"
+										class="form-control" />
+								</div>
+							</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<form:input id="JefesMujeres" path="a7218"
+										class="form-control" />
+								</div>
+							</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<form:input id="JefesTotal" path="a7219"
+										class="form-control" />
+									<p id="errorSuma7" hidden="true" style="color: #d9534f">Suma
+										incorrecta</p>
+								</div>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+						</div>
+						<!-- /Tab12 -->
+						<!-- Tab12 -->
+						<div class="col-lg-12">
+
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<p align="center">
+										<b>4-6-7-8-9-10-11</b>
+									</p>
+								</div>
+							</div>
+							<div class="col-lg-3">
+								<div class="form-group">
+									<p align="center">Auxiliares administrativos, oficiales,
+										subalternos, ayudantes no titulados, peones y trabajadores
+										menos de 18 años</p>
+								</div>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<form:input id="AuxiliarHombres" path="a72110"
+										class="form-control" />
+									<p id="errorDesagregados1" hidden="true" style="color: #d9534f">Total
+										hombres no coinciden</p>
+								</div>
+							</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<form:input id="AuxiliarMujeres" path="a72111"
+										class="form-control" />
+									<p id="errorDesagregados2" hidden="true" style="color: #d9534f">Total
+										mujeres no coinciden</p>
+								</div>
+							</div>
+							<div class="col-lg-1">
+								<div class="form-group">
+									<form:input id="AuxiliarTotal" path="a72112"
+										class="form-control" />
+									<p id="errorSuma8" hidden="true" style="color: #d9534f">Suma
+										incorrecta</p>
+									<p id="errorDesagregados3" hidden="true" style="color: #d9534f">Total
+										no coinciden</p>
+								</div>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+						</div>
+						<!-- /Tab12 -->
+
+						<div class="col-lg-12">&nbsp;</div>
+
+						<!-- Tab12 -->
+						<div class="col-lg-12">
+							<div class="form-group">
+								<label>7.2.2. Perspectivas de creación de empleo
+									ambiental a corto y largo plazo:</label>
+								<div class="alert alert-success">Se entiende por corto
+									plazo el periodo de tiempo inferior a un año. A partir del año
+									hablamos de perspectivas de creación de puestos de trabajo a
+									medio y largo plazo.</div>
+							</div>
+						</div>
+						<!-- /Tab12 -->
+
+						<!-- Tab12 -->
+						<div class="col-lg-12">
+							<div class="col-lg-9" align="center">
+								<h3 id="errorModalidad" hidden="true" style="color: #d9534f">Seleccione
+									si o no</h3>
+							</div>
+							<div class="col-lg-1">Si</div>
+							<div class="col-lg-1">No</div>
+							<div class="col-lg-1">&nbsp;</div>
+						</div>
+						<!-- /Tab12 -->
+
+						<!-- Tab12 -->
+						<div class="col-lg-12">
+							<div class="col-lg-12">&nbsp;</div>
+						</div>
+						<!-- /Tab12 -->
+
+						<!-- Tab12 -->
+						<div class="col-lg-12">
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-7">
+								<div class="form-group">
+									<p align="center">Hay en la empresa perspectivas de
+										creación de puestos de trabajo, vinculados a la actividad
+										ambiental que desarrolla, a corto plazo</p>
+								</div>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-1">
+								<acme:checkbox id="check1" path="a7221s"
+									onchange="checkbox1()" />
+							</div>
+							<div class="col-lg-1">
+								<acme:checkbox id="check2" path="a7221n"
+									onchange="checkbox2()" />
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+						</div>
+						<!-- /Tab12 -->
+
+						<!-- Tab12 -->
+						<div class="col-lg-12">
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-7">
+								<div class="form-group">
+									<p align="center">Hay en la empresa perspectivas de
+										creación de puestos de trabajo, vinculados a la actividad
+										ambiental que desarrolla, a medio y largo plazo</p>
+								</div>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-1">
+								<acme:checkbox id="check3" path="a7222s"
+									onchange="checkbox3()" />
+							</div>
+							<div class="col-lg-1">
+								<acme:checkbox id="check4" path="a7222n"
+									onchange="checkbox4()" />
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+						</div>
+						<!-- /Tab12 -->
+
+						<div class="col-lg-12">&nbsp;</div>
+
+
+						<!-- Tab12 -->
+						<div class="col-lg-4">&nbsp;</div>
+						<div class="col-lg-2">
+							<security:authorize
+								access="hasAnyRole('CIF2')">
+								<a href="encuesta/cif2/paginaCuatro.do" class="btn btn-default"
+									role="button">Paso anterior</a>
+							</security:authorize>
+							<security:authorize access="hasAnyRole('ADMIN')">
+								<a
+									href="encuesta/cif2/verPaginaCuatro.do?tipoCIF2Id=${tipoCIF2Id}"
+									class="btn btn-default" role="button">Paso anterior</a>
+							</security:authorize>
+						</div>
+						<div class="col-lg-2">
+							<button type="submit" class="btn btn-default" name="save">Siguiente
+								paso</button>
+						</div>
+						<div class="col-lg-4">&nbsp;</div>
+						<!-- /Tab12 -->
+
+
+
+
+					</div>
+				</div>
+				<!-- /.panel-body -->
+			</div>
+			<!-- /.panel -->
+		</div>
+		<!-- /.col-lg-12 -->
+	</form:form>
+</div>
+<!-- /.row -->
+<script type="text/javascript">
+	function validate5() {
+
+		res = suma1();
+		res2 = suma2();
+		res3 = concordancia();
+		res4 = suma3();
+		res5 = suma4();
+		res6 = concordancia1();
+		res7 = validateTotalMayor();
+		res8 = suma5();
+		res9 = desagregados();
+		res10 = validateModalidades();
+		resTotal = res && res2 && res4 && res5 && res7 && res8 && res9 && res10;
+		return resTotal;
+	}
+
+	function suma1() {
+		resSuma1 = true;
+		etNpoHombres = document.getElementById("etNpoHombres");
+		etNpoMujeres = document.getElementById("etNpoMujeres");
+		etNpoTotal = document.getElementById("etNpoTotal");
+		if (etNpoHombres.value.length == 0) {
+			etNpoHombres.value = 0;
+		}
+		if (etNpoMujeres.value.length == 0) {
+			etNpoMujeres.value = 0;
+		}
+		if (parseInt(etNpoHombres.value) + parseInt(etNpoMujeres.value) != parseInt(etNpoTotal.value)) {
+			resSuma1 = false;
+			errorSuma1.hidden = false;
+			etNpoTotal.focus();
+		} else {
+			errorSuma1.hidden = true;
+		}
+		return resSuma1;
+	}
+
+	function suma2() {
+		resSuma2 = true;
+		etNhtHombres = document.getElementById("etNhtHombres");
+		etNhtMujeres = document.getElementById("etNhtMujeres");
+		etNhtTotal = document.getElementById("etNhtTotal");
+		if (etNhtHombres.value.length == 0) {
+			etNhtHombres.value = 0;
+		}
+		if (etNhtMujeres.value.length == 0) {
+			etNhtMujeres.value = 0;
+		}
+		if (parseInt(etNhtHombres.value) + parseInt(etNhtMujeres.value) != parseInt(etNhtTotal.value)) {
+			resSuma2 = false;
+			errorSuma2.hidden = false;
+			etNhtTotal.focus();
+		} else {
+			errorSuma2.hidden = true;
+		}
+		return resSuma2;
+	}
+
+	function concordancia() {
+		etNpoHombres = document.getElementById("etNpoHombres");
+		etNpoMujeres = document.getElementById("etNpoMujeres");
+		etNhtHombres = document.getElementById("etNhtHombres");
+		etNhtMujeres = document.getElementById("etNhtMujeres");
+		//Hombres
+		if (etNpoHombres.value != 0) {
+			etNhtHombres.required = true;
+			etNhtHombres.min = "1";
+		} else {
+			etNhtHombres.required = false;
+			etNhtHombres.min = "0";
+		}
+
+		if (etNhtHombres.value != 0) {
+			etNpoHombres.required = true;
+			etNpoHombres.min = "1";
+		} else {
+			etNpoHombres.required = false;
+			etNpoHombres.min = "0";
+		}
+
+		//Mujeres
+		if (etNpoMujeres.value != 0) {
+			etNhtMujeres.required = true;
+			etNhtMujeres.min = "1";
+		} else {
+			etNhtMujeres.required = false;
+			etNhtMujeres.min = "0";
+		}
+
+		if (etNhtMujeres.value != 0) {
+			etNpoMujeres.required = true;
+			etNpoMujeres.min = "1";
+		} else {
+			etNpoMujeres.required = false;
+			etNpoMujeres.min = "0";
+		}
+	}
+
+	function suma3() {
+
+		resultado = true;
+		eaaNpoHombres = document.getElementById("eaaNpoHombres");
+		eaaNpoMujeres = document.getElementById("eaaNpoMujeres");
+		eaaNpoTotal = document.getElementById("eaaNpoTotal");
+
+		if (eaaNpoHombres.value.length == 0) {
+			eaaNpoHombres.value = 0;
+		}
+		if (eaaNpoMujeres.value.length == 0) {
+			eaaNpoMujeres.value = 0;
+		}
+		if (eaaNpoTotal.value.length == 0) {
+			eaaNpoTotal.value = 0;
+		}
+		if (parseInt(eaaNpoHombres.value) + parseInt(eaaNpoMujeres.value) != parseInt(eaaNpoTotal.value)) {
+			resultado = false;
+			errorSuma3.hidden = false;
+			eaaNpoTotal.focus();
+
+		} else {
+			errorSuma3.hidden = true;
+		}
+
+		return resultado;
+	}
+
+	function suma4() {
+
+		resultado1 = true;
+		eaaNhtHombres = document.getElementById("eaaNhtHombres");
+		eaaNhtMujeres = document.getElementById("eaaNhtMujeres");
+		eaaNhtTotal = document.getElementById("eaaNhtTotal");
+		if (eaaNhtHombres.value.length == 0) {
+			eaaNhtHombres.value = 0;
+		}
+		if (eaaNhtMujeres.value.length == 0) {
+			eaaNhtMujeres.value = 0;
+		}
+		if (eaaNhtTotal.value.length == 0) {
+			eaaNhtTotal.value = 0;
+		}
+
+		if (parseInt(eaaNhtHombres.value) + parseInt(eaaNhtMujeres.value) != parseInt(eaaNhtTotal.value)) {
+			resultado1 = false;
+			errorSuma4.hidden = false;
+			eaaNhtTotal.focus();
+
+		} else {
+			errorSuma4.hidden = true;
+		}
+
+		return resultado1;
+	}
+
+
+	
+	
+	function concordancia1() {
+		eaaNhtHombres = document.getElementById("eaaNhtHombres");
+		eaaNhtMujeres = document.getElementById("eaaNhtMujeres");
+		eaaNhtTotal = document.getElementById("eaaNhtTotal");
+		eaaNpoHombres = document.getElementById("eaaNpoHombres");
+		eaaNpoMujeres = document.getElementById("eaaNpoMujeres");
+		eaaNpoTotal = document.getElementById("eaaNpoTotal");
+		//Hombres
+		if (eaaNpoHombres.value != 0) {
+			eaaNhtHombres.required = true;
+			eaaNhtHombres.min = "1";
+		} else {
+			eaaNhtHombres.required = false;
+			eaaNhtHombres.min = "0";
+		}
+
+		if (eaaNhtHombres.value != 0) {
+			eaaNpoHombres.required = true;
+			eaaNpoHombres.min = "1";
+		} else {
+			eaaNpoHombres.required = false;
+			eaaNpoHombres.min = "0";
+		}
+
+		//Mujeres
+		if (eaaNpoMujeres.value != 0) {
+			eaaNhtMujeres.required = true;
+			eaaNhtMujeres.min = "1";
+		} else {
+			eaaNhtMujeres.required = false;
+			eaaNhtMujeres.min = "0";
+		}
+
+		if (eaaNhtMujeres.value != 0) {
+			eaaNpoMujeres.required = true;
+			eaaNpoMujeres.min = "1";
+		} else {
+			eaaNpoMujeres.required = false;
+			eaaNpoMujeres.min = "0";
+		}
+
+	}
+	
+	
+	function validateTotalMayor() {
+		res = true;
+		gastoPersonalCero = "${gastoPersonalCero}";
+		ambientalIgualAtotal = "${ambientalIgualAtotal}";		
+		eaaNpoTotal = document.getElementById("eaaNpoTotal");
+		eaaNhtTotal = document.getElementById("eaaNhtTotal");
+		etNpoTotal = document.getElementById("etNpoTotal");
+		etNhtTotal = document.getElementById("etNhtTotal");
+		
+	
+		if (parseInt(etNpoTotal.value) < parseInt(eaaNpoTotal.value)) {
+			res = false;
+			errorMayor1.hidden = false;
+			eaaNpoTotal.focus();
+		} else {
+			errorMayor1.hidden = true;
+		}
+
+		if (parseInt(etNhtTotal.value) < parseInt(eaaNhtTotal.value)) {
+			res = false;
+			errorMayor2.hidden = false;
+			eaaNhtTotal.focus();
+		} else {
+			errorMayor2.hidden = true;
+		}
+
+		if(gastoPersonalCero == "true" && eaaNpoTotal.value!="0"){
+			errorAmbientalDebeSerCero.hidden = false;
+			res=false;
+			eaaNpoTotal.focus();
+		}
+		else{
+			errorAmbientalDebeSerCero.hidden = true;
+		}
+		if (gastoPersonalCero == "false") {
+
+			eaaNpoTotal.min = "1";
+		} else {
+
+			eaaNpoTotal.min = "0";
+		}
+		
+		if((ambientalIgualAtotal == "true" && eaaNpoTotal.value!=etNpoTotal.value) || (ambientalIgualAtotal == "true" && eaaNhtTotal.value!=etNhtTotal.value)  ){
+			alert ("funcionando"); 
+		}
+		
+		return res;
+
+	}
+	
+	function suma5() {
+
+		res = true;
+		hombresIngenieros = document.getElementById("hombresIngenieros");
+		mujeresIngenieros = document.getElementById("mujeresIngenieros");
+		totalIngenieros = document.getElementById("totalIngenieros");
+
+		if (hombresIngenieros.value.length == 0) {
+			hombresIngenieros.value = 0;
+		}
+		if (mujeresIngenieros.value.length == 0) {
+			mujeresIngenieros.value = 0;
+		}
+		if (totalIngenieros.value.length == 0) {
+			totalIngenieros.value = 0;
+		}
+		if (parseInt(hombresIngenieros.value)
+				+ parseInt(mujeresIngenieros.value) != parseInt(totalIngenieros.value)) {
+			res = false;
+			errorSuma5.hidden = false;
+			totalIngenieros.focus();
+
+		} else {
+			errorSuma5.hidden = true;
+		}
+
+		hombresIngenierosTec = document.getElementById("hombresIngenierosTec");
+		mujeresIngenierosTec = document.getElementById("mujeresIngenierosTec");
+		totalIngenierosTec = document.getElementById("totalIngenierosTec");
+
+		if (hombresIngenierosTec.value.length == 0) {
+			hombresIngenierosTec.value = 0;
+		}
+		if (mujeresIngenierosTec.value.length == 0) {
+			mujeresIngenierosTec.value = 0;
+		}
+		if (totalIngenierosTec.value.length == 0) {
+			totalIngenierosTec.value = 0;
+		}
+		if (parseInt(hombresIngenierosTec.value)
+				+ parseInt(mujeresIngenierosTec.value) != parseInt(totalIngenierosTec.value)) {
+			res = false;
+			errorSuma6.hidden = false;
+			totalIngenierosTec.focus();
+
+		} else {
+			errorSuma6.hidden = true;
+		}
+
+		JefesHombes = document.getElementById("JefesHombes");
+		JefesMujeres = document.getElementById("JefesMujeres");
+		JefesTotal = document.getElementById("JefesTotal");
+		if (JefesHombes.value.length == 0) {
+			JefesHombes.value = 0;
+		}
+		if (JefesMujeres.value.length == 0) {
+			JefesMujeres.value = 0;
+		}
+		if (JefesTotal.value.length == 0) {
+			JefesTotal.value = 0;
+		}
+		if (parseInt(JefesHombes.value) + parseInt(JefesMujeres.value) != parseInt(JefesTotal.value)) {
+			res = false;
+			errorSuma7.hidden = false;
+			JefesTotal.focus();
+
+		} else {
+			errorSuma7.hidden = true;
+		}
+		AuxiliarHombres = document.getElementById("AuxiliarHombres");
+		AuxiliarMujeres = document.getElementById("AuxiliarMujeres");
+		AuxiliarTotal = document.getElementById("AuxiliarTotal");
+		if (AuxiliarHombres.value.length == 0) {
+			AuxiliarHombres.value = 0;
+		}
+		if (AuxiliarMujeres.value.length == 0) {
+			AuxiliarMujeres.value = 0;
+		}
+		if (AuxiliarTotal.value.length == 0) {
+			AuxiliarTotal.value = 0;
+		}
+		if (parseInt(AuxiliarHombres.value) + parseInt(AuxiliarMujeres.value) != parseInt(AuxiliarTotal.value)) {
+			res = false;
+			errorSuma8.hidden = false;
+			AuxiliarTotal.focus();
+
+		} else {
+			errorSuma8.hidden = true;
+		}
+
+		return res;
+	}
+	
+	function desagregados() {
+
+		resultado1 = true;
+		AuxiliarHombres = document.getElementById("AuxiliarHombres");
+		AuxiliarMujeres = document.getElementById("AuxiliarMujeres");
+		AuxiliarTotal = document.getElementById("AuxiliarTotal");
+		JefesHombes = document.getElementById("JefesHombes");
+		JefesMujeres = document.getElementById("JefesMujeres");
+		JefesTotal = document.getElementById("JefesTotal");
+		hombresIngenierosTec = document.getElementById("hombresIngenierosTec");
+		mujeresIngenierosTec = document.getElementById("mujeresIngenierosTec");
+		totalIngenierosTec = document.getElementById("totalIngenierosTec");
+		hombresIngenieros = document.getElementById("hombresIngenieros");
+		mujeresIngenieros = document.getElementById("mujeresIngenieros");
+		totalIngenieros = document.getElementById("totalIngenieros");
+		eaaNpoHombres = document.getElementById("eaaNpoHombres");
+		eaaNpoMujeres = document.getElementById("eaaNpoMujeres");
+		eaaNpoTotal = document.getElementById("eaaNpoTotal");
+
+		if (parseInt(eaaNpoHombres.value) != (parseInt(hombresIngenieros.value)
+				+ parseInt(hombresIngenierosTec.value)
+				+ parseInt(JefesHombes.value) + parseInt(AuxiliarHombres.value))) {
+			resultado1 = false;
+			errorDesagregados1.hidden = false;
+			AuxiliarHombres.focus();
+
+		} else {
+			errorDesagregados1.hidden = true;
+		}
+
+		if (parseInt(eaaNpoMujeres.value) != (parseInt(mujeresIngenieros.value)
+				+ parseInt(mujeresIngenierosTec.value)
+				+ parseInt(JefesMujeres.value) + parseInt(AuxiliarMujeres.value))) {
+			resultado1 = false;
+			errorDesagregados2.hidden = false;
+			AuxiliarMujeres.focus();
+
+		} else {
+			errorDesagregados2.hidden = true;
+		}
+
+		if (parseInt(eaaNpoTotal.value) != (parseInt(totalIngenieros.value)
+				+ parseInt(totalIngenierosTec.value)
+				+ parseInt(JefesTotal.value) + parseInt(AuxiliarTotal.value))) {
+			resultado1 = false;
+			errorDesagregados3.hidden = false;
+			AuxiliarTotal.focus();
+
+		} else {
+			errorDesagregados3.hidden = true;
+		}
+
+		return resultado1;
+	}
+	
+	function validateModalidades() {
+		res = true;
+		check1 = document.getElementById("check1");
+		check2 = document.getElementById("check2");
+		check3 = document.getElementById("check3");
+		check4 = document.getElementById("check4");
+		if ((check1.checked == false && check2.checked == false)
+				|| (check3.checked == false && check4.checked == false)) {
+			errorModalidad.hidden = false;
+			res = false;
+		} else {
+			errorModalidad.hidden = true;
+		}
+		return res;
+
+	}
+
+	function checkbox1() {
+		check1 = document.getElementById("check1");
+		check2 = document.getElementById("check2");
+		if (check1.checked) {
+			check2.checked = false;
+		}
+	}
+	
+	function checkbox2() {
+		check1 = document.getElementById("check1");
+		check2 = document.getElementById("check2");
+		if (check2.checked) {
+			check1.checked = false;
+		}
+	}
+	function checkbox3() {
+		check3 = document.getElementById("check3");
+		check4 = document.getElementById("check4");
+		if (check3.checked) {
+			check4.checked = false;
+		}
+	}
+
+	function checkbox4() {
+		check3 = document.getElementById("check3");
+		check4 = document.getElementById("check4");
+		if (check4.checked) {
+			check3.checked = false;
+		}
+	}
+</script>
+

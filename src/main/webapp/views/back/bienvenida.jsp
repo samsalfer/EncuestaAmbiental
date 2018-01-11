@@ -1,0 +1,781 @@
+
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="display" uri="http://displaytag.sf.net"%>
+<%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
+
+
+<security:authorize access="hasAnyRole('FIN')">
+	<div class="row">
+		<br />
+		<div class="col-lg-4 col-lg-offset-4">
+			<div class="panel panel-green">
+				<div class="panel-heading">Usted ya ha completado
+					correctamente su encuesta</div>
+				<div class="panel-body">
+					<p>Este mensaje aparece porque usted está intentando modificar
+						datos de la encuesta ya ha sido revisada evisada por el equipo del
+						trabajo de campo y está bien cumplimentada por lo que no es
+						necesario que se apliquen más cambios.</p>
+
+					<p>Desde aquí le damos las gracias por su colaboración</p>
+				</div>
+			</div>
+			<!-- /.col-lg-4 -->
+		</div>
+	</div>
+</security:authorize>
+
+
+
+<security:authorize access="hasAnyRole('CIF1','CIF2','CIF3','CIF4')">
+	<div class="row">
+		<br />
+
+		<security:authorize access="hasRole('CIF1')">
+			<div class="col-lg-8 col-lg-offset-2">
+				<div class="well" align="center">
+					<h4>Bienvenid@ a la encuesta sobre Actividad Económica y Medio
+						Ambiente en Andalucía</h4>
+				</div>
+			</div>
+
+			<jstl:choose>
+				<jstl:when test="${actor.validado==true}">
+
+
+				</jstl:when>
+				<jstl:otherwise>
+
+					<div class="col-lg-4 col-lg-offset-4">
+						<div class="panel panel-green">
+							<div class="panel-heading">Cuestionario tipo I</div>
+							<div class="panel-body">
+								<p align="justify">Deberá tener en cuenta las siguientes
+									indicaciones para rellenar la encuesta:</p>
+								<p align="justify">- Los datos del formulario deben ser
+									coherentes, esto será validado automáticamente y no podrán ser
+									introducidos datos que no concuerden, mostrando para su
+									correción un texto de color rojo explicando el error cometido
+									junto a la casilla que contiene este error.</p>
+								<p align="justify">- Cada vez que pulsa siguiente sin ningún
+									error y consigue pasar a la siguiente página los datos serán
+									guardados automáticamente, de manera que si tiene algún
+									problema o cierra la aplicación, al volver a introducir su CIF
+									y contraseña volverá a tener los datos que ha completado
+									anteriormente.</p>
+								<p align="justify">- Si vuelve a la página anterior perderá
+									la información que ha incluido en el formulario actual.</p>
+								<p align="justify">- La sesión expira en 30 minutos una vez
+									pasado este tiempo tendrá que volver a identificarse y
+									continuar por la página que estaba.</p>
+								<p align="justify">- Una vez terminado el formulario podrá
+									modificar los datos hasta que su encuesta sea validada. En el
+									caso de no conseguir esta validación se le comunicará para su
+									revisión.</p>
+							</div>
+						</div>
+						<!-- /.col-lg-4 -->
+					</div>
+
+					<div class="col-lg-2 col-lg-offset-5" style="text-align: center">
+						<a href="encuesta/cif1/paginaUno.do" style="text-align: center"><button
+								type="button" class="btn btn-outline btn-success">Comenzar
+								la encuesta</button></a>
+					</div>
+
+				</jstl:otherwise>
+			</jstl:choose>
+
+
+
+		</security:authorize>
+
+		<security:authorize access="hasRole('CIF2')">
+			<div class="col-lg-8 col-lg-offset-2">
+				<div class="well" align="center">
+					<h4>Bienvenid@ a la encuesta sobre Actividad Económica y Medio
+						Ambiente en Andalucía</h4>
+				</div>
+			</div>
+
+			<jstl:choose>
+				<jstl:when test="${actor.validado==true}">
+
+
+				</jstl:when>
+				<jstl:otherwise>
+
+					<div class="col-lg-4 col-lg-offset-4">
+						<div class="panel panel-green">
+							<div class="panel-heading">Cuestionario tipo II</div>
+							<div class="panel-body">
+								<p align="justify">Deberá tener en cuenta las siguientes
+									indicaciones para rellenar la encuesta:</p>
+								<p align="justify">- Los datos del formulario deben ser
+									coherentes, esto será validado automáticamente y no podrán ser
+									introducidos datos que no concuerden, mostrando para su
+									correción un texto de color rojo explicando el error cometido
+									junto a la casilla que contiene este error.</p>
+								<p align="justify">- Cada vez que pulsa siguiente sin ningún
+									error y consigue pasar a la siguiente página los datos serán
+									guardados automáticamente, de manera que si tiene algún
+									problema o cierra la aplicación, al volver a introducir su CIF
+									y contraseña volverá a tener los datos que ha completado
+									anteriormente.</p>
+								<p align="justify">- Si vuelve a la página anterior perderá
+									la información que ha incluido en el formulario actual.</p>
+								<p align="justify">- La sesión expira en 30 minutos una vez
+									pasado este tiempo tendrá que volver a identificarse y
+									continuar por la página que estaba.</p>
+								<p align="justify">- Una vez terminado el formulario podrá
+									modificar los datos hasta que su encuesta sea validada. En el
+									caso de no conseguir esta validación se le comunicará para su
+									revisión.</p>
+							</div>
+						</div>
+						<!-- /.col-lg-4 -->
+					</div>
+
+					<div class="col-lg-2 col-lg-offset-5" style="text-align: center">
+						<a href="encuesta/cif2/paginaUno.do" style="text-align: center"><button
+								type="button" class="btn btn-outline btn-success">Comenzar
+								la encuesta</button></a>
+					</div>
+
+				</jstl:otherwise>
+			</jstl:choose>
+
+
+
+		</security:authorize>
+
+		<security:authorize access="hasRole('CIF3')">
+			<div class="col-lg-8 col-lg-offset-2">
+				<div class="well" align="center">
+					<h4>Bienvenid@ a la encuesta sobre Actividad Económica y Medio
+						Ambiente en Andalucía</h4>
+				</div>
+			</div>
+
+			<jstl:choose>
+				<jstl:when test="${actor.validado==true}">
+
+
+				</jstl:when>
+				<jstl:otherwise>
+
+					<div class="col-lg-4 col-lg-offset-4">
+						<div class="panel panel-green">
+							<div class="panel-heading">Cuestionario tipo III</div>
+							<div class="panel-body">
+								<p align="justify">Deberá tener en cuenta las siguientes
+									indicaciones para rellenar la encuesta:</p>
+								<p align="justify">- Los datos del formulario deben ser
+									coherentes, esto será validado automáticamente y no podrán ser
+									introducidos datos que no concuerden, mostrando para su
+									correción un texto de color rojo explicando el error cometido
+									junto a la casilla que contiene este error.</p>
+								<p align="justify">- Cada vez que pulsa siguiente sin ningún
+									error y consigue pasar a la siguiente página los datos serán
+									guardados automáticamente, de manera que si tiene algún
+									problema o cierra la aplicación, al volver a introducir su CIF
+									y contraseña volverá a tener los datos que ha completado
+									anteriormente.</p>
+								<p align="justify">- Si vuelve a la página anterior perderá
+									la información que ha incluido en el formulario actual.</p>
+								<p align="justify">- La sesión expira en 30 minutos una vez
+									pasado este tiempo tendrá que volver a identificarse y
+									continuar por la página que estaba.</p>
+								<p align="justify">- Una vez terminado el formulario podrá
+									modificar los datos hasta que su encuesta sea validada. En el
+									caso de no conseguir esta validación se le comunicará para su
+									revisión.</p>
+							</div>
+						</div>
+						<!-- /.col-lg-4 -->
+					</div>
+
+					<div class="col-lg-2 col-lg-offset-5" style="text-align: center">
+						<a href="encuesta/cif3/paginaUno.do" style="text-align: center"><button
+								type="button" class="btn btn-outline btn-success">Comenzar
+								la encuesta</button></a>
+					</div>
+
+				</jstl:otherwise>
+			</jstl:choose>
+
+
+
+		</security:authorize>
+		
+				<security:authorize access="hasRole('CIF4')">
+			<div class="col-lg-8 col-lg-offset-2">
+				<div class="well" align="center">
+					<h4>Bienvenid@ a la encuesta sobre Actividad Económica y Medio
+						Ambiente en Andalucía</h4>
+				</div>
+			</div>
+
+			<jstl:choose>
+				<jstl:when test="${actor.validado==true}">
+
+
+				</jstl:when>
+				<jstl:otherwise>
+
+					<div class="col-lg-4 col-lg-offset-4">
+						<div class="panel panel-green">
+							<div class="panel-heading">Cuestionario tipo IV</div>
+							<div class="panel-body">
+								<p align="justify">Deberá tener en cuenta las siguientes
+									indicaciones para rellenar la encuesta:</p>
+								<p align="justify">- Los datos del formulario deben ser
+									coherentes, esto será validado automáticamente y no podrán ser
+									introducidos datos que no concuerden, mostrando para su
+									correción un texto de color rojo explicando el error cometido
+									junto a la casilla que contiene este error.</p>
+								<p align="justify">- Cada vez que pulsa siguiente sin ningún
+									error y consigue pasar a la siguiente página los datos serán
+									guardados automáticamente, de manera que si tiene algún
+									problema o cierra la aplicación, al volver a introducir su CIF
+									y contraseña volverá a tener los datos que ha completado
+									anteriormente.</p>
+								<p align="justify">- Si vuelve a la página anterior perderá
+									la información que ha incluido en el formulario actual.</p>
+								<p align="justify">- La sesión expira en 30 minutos una vez
+									pasado este tiempo tendrá que volver a identificarse y
+									continuar por la página que estaba.</p>
+								<p align="justify">- Una vez terminado el formulario podrá
+									modificar los datos hasta que su encuesta sea validada. En el
+									caso de no conseguir esta validación se le comunicará para su
+									revisión.</p>
+							</div>
+						</div>
+						<!-- /.col-lg-4 -->
+					</div>
+
+					<div class="col-lg-2 col-lg-offset-5" style="text-align: center">
+						<a href="encuesta/cif4/paginaUno.do" style="text-align: center"><button
+								type="button" class="btn btn-outline btn-success">Comenzar
+								la encuesta</button></a>
+					</div>
+
+				</jstl:otherwise>
+			</jstl:choose>
+
+
+
+		</security:authorize>
+
+	</div>
+
+</security:authorize>
+
+<security:authorize access="hasAnyRole('ADMIN')">
+	<div class="row">
+		<div id="page-wrapper"
+			style="margin-left: 50px; margin-right: 50px; height: 800px;">
+			<div class="col-lg-12">
+				<h1 class="page-header">Panel de control</h1>
+			</div>
+
+
+			<h2 align="center">Cuestionarios Tipo I</h2>
+			<div class="col-lg-2 col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-3">
+								<i class="fa fa-comments fa-5x"></i>
+							</div>
+							<div class="col-xs-9 text-right">
+								<div class="huge">
+									<jstl:out value="${totalTipo1}"></jstl:out>
+								</div>
+								<div>Número total de cuestionarios recibidos</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-3">
+								<i class="fa fa-comments fa-5x"></i>
+							</div>
+							<div class="col-xs-9 text-right">
+								<div class="huge">
+									<jstl:out value="${totalNoIncidenciasTipo1}"></jstl:out>
+								</div>
+								<div>Número de cuestionarios recibidos sin incidencias</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-3">
+								<i class="fa fa-comments fa-5x"></i>
+							</div>
+							<div class="col-xs-9 text-right">
+								<div class="huge">
+									<jstl:out value="${totalIncidenciasTipo1}"></jstl:out>
+								</div>
+								<div>Número de cuestionarios recibidos con incidencias</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-3">
+								<i class="fa fa-comments fa-5x"></i>
+							</div>
+							<div class="col-xs-9 text-right">
+								<div class="huge">
+									<jstl:out value="${totalDevueltosPorSerNoAmbientalTipo1}"></jstl:out>
+								</div>
+								<div>Número de cuestionarios no ambientales</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-3">
+								<i class="fa fa-comments fa-5x"></i>
+							</div>
+							<div class="col-xs-9 text-right">
+								<div class="huge">
+									<jstl:out value="${totalNumeroRevisadosTipo1}"></jstl:out>
+								</div>
+								<div>Número de cuestionarios revisados</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-3">
+								<i class="fa fa-comments fa-5x"></i>
+							</div>
+							<div class="col-xs-9 text-right">
+								<div class="huge">
+									<jstl:out value="${totalNumeroValidadosTipo1}"></jstl:out>
+								</div>
+								<div>Número de cuestionarios validados</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-12 col-md-12"
+				style="padding-left: 0px; padding-right: 0px;">
+				<h2 align="center">Cuestionarios Tipo II</h2>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalTipo2}"></jstl:out>
+									</div>
+									<div>Número total de cuestionarios recibidos</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalNoIncidenciasTipo2}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios recibidos sin incidencias</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalIncidenciasTipo2}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios recibidos con incidencias</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalDevueltosPorSerNoAmbientalTipo2}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios no ambientales</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalNumeroRevisadosTipo2}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios revisados</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalNumeroValidadosTipo2}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios validados</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-12 col-md-12"
+				style="padding-left: 0px; padding-right: 0px;">
+				<h2 align="center">Cuestionarios Tipo III</h2>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalTipo3}"></jstl:out>
+									</div>
+									<div>Número total de cuestionarios recibidos</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalNoIncidenciasTipo3}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios recibidos sin incidencias</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalIncidenciasTipo3}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios recibidos con incidencias</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalDevueltosPorSerNoAmbientalTipo3}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios no ambientales</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalNumeroRevisadosTipo3}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios revisados</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalNumeroValidadosTipo3}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios validados</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-12 col-md-12"
+				style="padding-left: 0px; padding-right: 0px;">
+				<h2 align="center">Cuestionarios Tipo IV</h2>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalTipo4}"></jstl:out>
+									</div>
+									<div>Número total de cuestionarios recibidos</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalNoIncidenciasTipo4}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios recibidos sin incidencias</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalIncidenciasTipo4}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios recibidos con incidencias</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalDevueltosPorSerNoAmbientalTipo4}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios no ambientales</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalNumeroRevisadosTipo4}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios revisados</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-comments fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">
+										<jstl:out value="${totalNumeroValidadosTipo4}"></jstl:out>
+									</div>
+									<div>Número de cuestionarios validados</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+				<div class="col-lg-12 col-md-12" align="center">
+
+					<h2>Acceda a las distintas secciones para la búsqueda de
+						encuestas por tipo:</h2>
+
+					<p>
+
+						<a href="encuesta/buscarTipo1.do"><button type="button"
+								class="btn btn-outline btn-primary btn-lg"
+								style="border-right-width: 1px; margin-right: 15px; margin-left: 15px;">Encuestas
+								tipo I</button></a> <a href="encuesta/buscarTipo2.do"><button
+								type="button" class="btn btn-outline btn-primary btn-lg"
+								style="border-right-width: 1px; margin-right: 15px; margin-left: 15px;">Encuestas
+								tipo II</button></a> <a href="encuesta/buscarTipo3.do"><button
+								type="button" class="btn btn-outline btn-primary btn-lg"
+								style="border-right-width: 1px; margin-right: 15px; margin-left: 15px;">Encuestas
+								tipo III</button></a> <a href="encuesta/buscarTipo4.do"><button
+								type="button" class="btn btn-outline btn-primary btn-lg"
+								style="border-right-width: 1px; margin-right: 15px; margin-left: 15px;">Encuestas
+								tipo IV</button></a>
+
+					</p>
+				</div>
+			</div>
+
+		</div>
+</security:authorize>
+
+<script>
+	// convertimos en minusculas la cadena devuelta por navigator.userAgent
+	var nav = navigator.userAgent.toLowerCase();
+	var ua = window.navigator.userAgent;
+	var msie = ua.indexOf("MSIE ");
+
+	//buscamos dentro de la cadena mediante indexOf() el identificador del navegador
+	if (nav.indexOf("msie") != -1) {
+		alert("Hemos detectado que estas usando el navegador Internet Explorer por lo que algunas funciones o mensajes no podrá verlos. Le recomendamos que utilize uno de los siguientes navegadores:\n\n - Google Chrome \n - Mozilla Firefox \n - Opera");
+	}
+
+	if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer, return version number
+		alert("Hemos detectado que estas usando el navegador Internet Explorer por lo que algunas funciones o mensajes no podrá verlos. Le recomendamos que utilize uno de los siguientes navegadores:\n\n - Google Chrome \n - Mozilla Firefox \n - Opera");
+</script>
+
+
+

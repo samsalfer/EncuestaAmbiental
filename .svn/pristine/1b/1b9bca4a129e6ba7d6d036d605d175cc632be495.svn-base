@@ -1,0 +1,215 @@
+package forms;
+
+import java.math.BigDecimal;
+
+public class Tipo4FormularioTresForm {
+
+	// Constructors -----------------------------------------------------------
+
+	public Tipo4FormularioTresForm() {
+		super();
+	}
+
+	// Attributes--------------------------------------------------------------
+
+	private int customerId;
+
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
+	private Boolean a51n;
+	private Boolean a51s;
+	private BigDecimal a511;
+	private BigDecimal a512;
+	private BigDecimal a521;
+	private BigDecimal a522;
+	private BigDecimal a531;
+	private BigDecimal a532;
+	private BigDecimal a541;
+	private BigDecimal a542;
+	private BigDecimal a551;
+	private BigDecimal a552;
+	private BigDecimal a561;
+	private BigDecimal a562;
+	private BigDecimal a571;
+	private BigDecimal a572;
+	private String a528otros1;
+	private BigDecimal a581;
+	private BigDecimal a582;
+	private BigDecimal a591;
+	private BigDecimal a592;
+	
+	public Boolean getA51s() {
+		return a51s;
+	}
+
+	public void setA51s(Boolean a51s) {
+		this.a51s = a51s;
+	}
+
+	public Boolean getA51n() {
+		return a51n;
+	}
+
+	public void setA51n(Boolean a51n) {
+		this.a51n = a51n;
+	}
+
+	public BigDecimal getA511() {
+		return a511;
+	}
+
+	public void setA511(BigDecimal a511) {
+		this.a511 = a511;
+	}
+
+	public BigDecimal getA512() {
+		return a512;
+	}
+
+	public void setA512(BigDecimal a512) {
+		this.a512 = a512;
+	}
+
+	public BigDecimal getA521() {
+		return a521;
+	}
+
+	public void setA521(BigDecimal a521) {
+		this.a521 = a521;
+	}
+
+	public BigDecimal getA522() {
+		return a522;
+	}
+
+	public void setA522(BigDecimal a522) {
+		this.a522 = a522;
+	}
+
+	public BigDecimal getA531() {
+		return a531;
+	}
+
+	public void setA531(BigDecimal a531) {
+		this.a531 = a531;
+	}
+
+	public BigDecimal getA532() {
+		return a532;
+	}
+
+	public void setA532(BigDecimal a532) {
+		this.a532 = a532;
+	}
+
+	public BigDecimal getA541() {
+		return a541;
+	}
+
+	public void setA541(BigDecimal a541) {
+		this.a541 = a541;
+	}
+
+	public BigDecimal getA542() {
+		return a542;
+	}
+
+	public void setA542(BigDecimal a542) {
+		this.a542 = a542;
+	}
+
+	public BigDecimal getA551() {
+		return a551;
+	}
+
+	public void setA551(BigDecimal a551) {
+		this.a551 = a551;
+	}
+
+	public BigDecimal getA552() {
+		return a552;
+	}
+
+	public void setA552(BigDecimal a552) {
+		this.a552 = a552;
+	}
+
+	public BigDecimal getA561() {
+		return a561;
+	}
+
+	public void setA561(BigDecimal a561) {
+		this.a561 = a561;
+	}
+
+	public BigDecimal getA562() {
+		return a562;
+	}
+
+	public void setA562(BigDecimal a562) {
+		this.a562 = a562;
+	}
+
+	public BigDecimal getA571() {
+		return a571;
+	}
+
+	public void setA571(BigDecimal a571) {
+		this.a571 = a571;
+	}
+
+	public BigDecimal getA572() {
+		return a572;
+	}
+
+	public void setA572(BigDecimal a572) {
+		this.a572 = a572;
+	}
+
+	public String getA528otros1() {
+		return a528otros1;
+	}
+
+	public void setA528otros1(String a528otros1) {
+		this.a528otros1 = a528otros1;
+	}
+
+	public BigDecimal getA581() {
+		return a581;
+	}
+
+	public void setA581(BigDecimal a581) {
+		this.a581 = a581;
+	}
+
+	public BigDecimal getA582() {
+		return a582;
+	}
+
+	public void setA582(BigDecimal a582) {
+		this.a582 = a582;
+	}
+
+	public BigDecimal getA591() {
+		return a591;
+	}
+
+	public void setA591(BigDecimal a591) {
+		this.a591 = a591;
+	}
+
+	public BigDecimal getA592() {
+		return a592;
+	}
+
+	public void setA592(BigDecimal a592) {
+		this.a592 = a592;
+	}
+
+}

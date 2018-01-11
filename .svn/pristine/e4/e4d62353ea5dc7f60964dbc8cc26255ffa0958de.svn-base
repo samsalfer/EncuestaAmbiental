@@ -1,0 +1,1047 @@
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="display" uri="http://displaytag.sf.net"%>
+<%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
+
+<div id="page-wrapper" style="margin-left: 50px; margin-right: 50px;">
+	<form:form action="${requestURI}" modelAttribute="formularioTresForm"
+		id="commentForm">
+		<form:hidden path="customerId" />
+		<div class="row">
+			<div class="col-lg-3 col-md-1" style="margin-top: 15px;">
+				&nbsp;</div>
+			<div class="col-lg-3 col-md-5" style="margin-top: 15px;">
+				<img src="back/img/europa1.gif" class="img-responsive" alt="Europa">
+			</div>
+			<div class="col-lg-3 col-md-5" style="margin-top: 15px;">
+				<img src="back/img/junta1.png" class="img-responsive"
+					alt="Junta de andalucia">
+			</div>
+			<div class="col-lg-3 col-md-1" style="margin-top: 15px;">
+				&nbsp;</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<h1 class="page-header">Encuesta sobre Actividad
+					Econ&oacutemica y Medio Ambiente en Andaluc&iacutea 2014 (3/4)</h1>
+				<ul class="errorMessages"></ul>
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<b>A3. Empleo</b>
+					</div>
+					<div class="panel-body">
+						<div class="alert alert-success">
+							Los datos solicitados se refieren exclusivamente al personal
+							adscrito a la entidad pública; se excluye, por tanto, el personal
+							ocupado en cualquier otro organismo vinculado, empresa pública o
+							subcontrata. Consigne los datos sobre empleo total y empleo en
+							actividades ambientales. En <b>empleo en actividades
+								ambientales</b> se contabiliza a aquellas personas ocupadas que
+							trabajan exclusivamente en alguna actividad ambiental y a
+							aquellas otras que, a tiempo parcial, realizan este tipo de
+							actividades. El <b>número de personas ocupadas</b> corresponde al
+							total de personas dedicadas íntegra o parcialmente a actividades
+							ambientales en el <b>año 2014</b> y el <b>número de horas
+								trabajadas</b> se refiere asimismo al total anual. (Véase ejemplo en
+							Anexo)
+						</div>
+
+
+						<div class="row">
+
+							<!-- Tab12 -->
+							<div class="col-lg-12 ">
+
+								<div class="col-lg-4">&nbsp;</div>
+								<div class="col-lg-3">
+									<div class="form-group">
+										<p align="center">
+											<b>Número de personas ocupadas</b>
+										</p>
+									</div>
+								</div>
+
+								<div class="col-lg-1">&nbsp;</div>
+
+								<div class="col-lg-3">
+									<div class="form-group">
+										<p align="center">
+											<b>Número de horas trabajadas</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- Tab12 -->
+							<div class="col-lg-12">
+
+								<div class="col-lg-4">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group">
+										<p align="center">
+											<b>Hombres</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group">
+										<p align="center">
+											<b>Mujeres</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group">
+										<p align="center">
+											<b>Total</b>
+										</p>
+									</div>
+								</div>
+
+								<div class="col-lg-1">&nbsp;</div>
+
+								<div class="col-lg-1">
+									<div class="form-group">
+										<p align="center">
+											<b>Hombres</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group">
+										<p align="center">
+											<b>Mujeres</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group">
+										<p align="center">
+											<b>Total</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>
+										<b>3.1. Empleo total</b>
+									</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a311" path="a311" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a312" path="a312" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a313" path="a313" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a314" path="a314" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a315" path="a315" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a316" path="a316" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<div class="col-lg-12">&nbsp;</div>
+
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-4">
+									<p>
+										<b>3.2. Empleo en actuaciones ambientales</b>
+									</p>
+								</div>
+								<div class="col-lg-7">&nbsp;</div>
+							</div>
+
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-4">
+									<p>
+										<b>Gestión ambiental del medio atmosférico:</b>
+									</p>
+								</div>
+								<div class="col-lg-7">&nbsp;</div>
+							</div>
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>Control y reducción de la contaminación del aire</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32011" path="a32011" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32012" path="a32012" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32013" path="a32013" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32014" path="a32014" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32015" path="a32015" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32016" path="a32016" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>Control de la contaminación por ruidos y vibraciones</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32021" path="a32021" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32022" path="a32022" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32023" path="a32023" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32024" path="a32024" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32025" path="a32025" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32026" path="a32026" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<div class="col-lg-12">&nbsp;</div>
+
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-4">
+									<p>
+										<b>Gestión sostenible de los recursos hídricos y
+											descontaminación de espacios:</b>
+									</p>
+								</div>
+								<div class="col-lg-7">&nbsp;</div>
+							</div>
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>Gestión del agua</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32031" path="a32031" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32032" path="a32032" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32033" path="a32033" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32034" path="a32034" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32035" path="a32035" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32036" path="a32036" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>Recogida y tratamiento de aguas residuales</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32041" path="a32041" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32042" path="a32042" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32043" path="a32043" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32044" path="a32044" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32045" path="a32045" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32046" path="a32046" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>Saneamiento y restauración de suelos</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32051" path="a32051" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32052" path="a32052" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32053" path="a32053" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32054" path="a32054" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32055" path="a32055" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32056" path="a32056" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<div class="col-lg-12">&nbsp;</div>
+
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-4">
+									<p>
+										<b>Gestión de residuos y reciclaje:</b>
+									</p>
+								</div>
+								<div class="col-lg-7">&nbsp;</div>
+							</div>
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>Recogida, transporte, almacenamiento y eliminación</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32061" path="a32061" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32062" path="a32062" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32063" path="a32063" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32064" path="a32064" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32065" path="a32065" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32066" path="a32066" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>Reciclaje y valorización</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32071" path="a32071" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32072" path="a32072" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32073" path="a32073" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32074" path="a32074" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32075" path="a32075" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32076" path="a32076" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<div class="col-lg-12">&nbsp;</div>
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>
+										<b>Gestión sostenible de la anergía: Energía Renovable</b>
+									</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32081" path="a32081" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32082" path="a32082" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32083" path="a32083" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32084" path="a32084" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32085" path="a32085" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32086" path="a32086" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>
+										<b>Agricultura y ganadería ecológicas</b>
+									</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32091" path="a32091" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32092" path="a32092" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32093" path="a32093" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32094" path="a32094" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32095" path="a32095" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32096" path="a32096" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>
+										<b>Gestión de espacios protegidos y actividades forestales</b>
+									</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32101" path="a32101" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32102" path="a32102" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32103" path="a32103" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32104" path="a32104" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32105" path="a32105" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32106" path="a32106" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>
+										<b>Ecoturismo</b>
+									</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32111" path="a32111" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32112" path="a32112" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32113" path="a32113" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32114" path="a32114" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32115" path="a32115" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32116" path="a32116" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>
+										<b>Educación y sensibilización ambiental</b>
+									</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32121" path="a32121" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32122" path="a32122" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32123" path="a32123" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32124" path="a32124" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32125" path="a32125" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32126" path="a32126" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>
+										<b>Ecoinnovación, investigación y desarrollo en materia
+											ambiental</b>
+									</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32131" path="a32131" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32132" path="a32132" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32133" path="a32133" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32134" path="a32134" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32135" path="a32135" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32136" path="a32136" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>
+										<b>Consultoría e ingeniería ambiental multi-ámbito</b>
+									</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32141" path="a32141" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32142" path="a32142" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32143" path="a32143" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32144" path="a32144" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32145" path="a32145" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32146" path="a32146" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>
+										<b>Construcción sostenible : Edificación, rehabilitación y
+											eficiencia energética</b>
+									</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32151" path="a32151" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32152" path="a32152" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32153" path="a32153" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32154" path="a32154" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32155" path="a32155" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32156" path="a32156" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>
+										<b>Movilidad sostenible</b>
+									</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32161" path="a32161" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32162" path="a32162" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32163" path="a32163" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32164" path="a32164" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32165" path="a32165" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32166" path="a32166" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>
+										<b>Otros (especificar):</b>
+									</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32171" path="a32171" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32172" path="a32172" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32173" path="a32173" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32174" path="a32174" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32175" path="a32175" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a32176" path="a32176" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<form:textarea id="eOtros" path="eOtros" class="form-control"
+										maxlength="250" />
+								</div>
+								<div class="col-lg-8">&nbsp;</div>
+							</div>
+
+							<div class="col-lg-12">&nbsp;</div>
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-3">
+									<p>
+										<b>3.3. Total empleo en actuaciones ambientales</b>
+									</p>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a331" path="a331" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a332" path="a332" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a333" path="a333" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a334" path="a334" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a335" path="a335" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">
+									<div class="form-group input-group">
+										<form:input id="a336" path="a336" class="form-control" />
+									</div>
+								</div>
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+
+							<div class="col-lg-12">&nbsp;</div>
+
+							<!-- Tab12 -->
+							<div class="col-lg-4">&nbsp;</div>
+							<div class="col-lg-2">
+								<security:authorize access="hasAnyRole('CIF3')">
+									<a href="encuesta/cif3/paginaDos.do" class="btn btn-default"
+										role="button">Paso anterior</a>
+								</security:authorize>
+								<security:authorize access="hasAnyRole('ADMIN')">
+									<a
+										href="encuesta/cif3/verPaginaDos.do?tipoCIF3Id=${tipoCIF3Id}"
+										class="btn btn-default" role="button">Paso anterior</a>
+								</security:authorize>
+							</div>
+							<div class="col-lg-2">
+								<button type="submit" class="btn btn-default" name="save">Siguiente
+									paso</button>
+							</div>
+							<div class="col-lg-4">&nbsp;</div>
+							<!-- /Tab12 -->
+
+
+						</div>
+
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+
+		<!-- /.row -->
+
+	</form:form>
+</div>
+
+

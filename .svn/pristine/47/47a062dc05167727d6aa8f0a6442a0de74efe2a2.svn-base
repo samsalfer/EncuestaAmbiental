@@ -1,0 +1,677 @@
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="display" uri="http://displaytag.sf.net"%>
+<%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
+
+
+
+<div id="page-wrapper" style="margin-left: 50px; margin-right: 50px;">
+	<form:form action="${requestURI}" modelAttribute="formularioTresForm"
+		id="commentForm" onsubmit="return validate3()">
+		<form:hidden path="customerId" />
+		<div class="row">
+			<div class="col-lg-3 col-md-1" style="margin-top: 15px;">
+				&nbsp;</div>
+			<div class="col-lg-3 col-md-5" style="margin-top: 15px;">
+				<img src="back/img/europa1.gif" class="img-responsive" alt="Europa">
+			</div>
+			<div class="col-lg-3 col-md-5" style="margin-top: 15px;">
+				<img src="back/img/junta1.png" class="img-responsive"
+					alt="Junta de andalucia">
+			</div>
+			<div class="col-lg-3 col-md-1" style="margin-top: 15px;">
+				&nbsp;</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<h1 class="page-header">Encuesta sobre Actividad
+					Econ&oacutemica y Medio Ambiente en Andaluc&iacutea 2014 (3/6)</h1>
+				<ul class="errorMessages"></ul>
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<b> A4. Informaci&oacuten econ&oacutemica</b>
+					</div>
+					<div class="panel-body">
+						<div class="alert alert-success">
+							En este apartado se requieren los datos sobre facturación y
+							gastos globales, sobre facturación y gastos en <b>actividades
+								ambientales</b>, así como el porcentaje que representa las distintas
+							actividades ambientales, según se definen en <a
+								href="front/anexo.pdf" target="_blank"><b>Anexo</b></a>, <b>para
+								el total de los establecimientos/centros que desarrollan una
+								actividad ambiental en Andalucía</b>. La <b>facturación</b> se
+							refiere al <b>importe neto de la cifra de negocios</b> o suma de
+							los importes relativos a las ventas netas de bienes y servicios;
+							si dada la naturaleza del establecimiento/centro, éste no
+							factura, se consignará los <b>ingresos</b> o importes
+							correspondientes a las cuotas o tasas percibidas en
+							contraprestación de sus servicios. Por su parte, <b>el gasto
+								total</b> se refiere a la suma de gasto corriente y gasto de
+							capital, y asimismo se solicita el importe debido a <b>gasto
+								de personal</b> y a <b>inversiones</b> en equipamiento e
+							instalaciones.
+
+
+						</div>
+						<div class="row">
+
+							<!-- Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">&nbsp;</div>
+
+								<div class="col-lg-2">
+									<div class="form-group">
+										<p align="center">
+											<b>Facturación/Ingresos:</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<p align="center">
+											<b>Gasto total:</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<p align="center">
+											<b>Gasto de personal:</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<p align="center">
+											<b>Inversiones reales:</b>
+										</p>
+									</div>
+								</div>
+
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+							<!-- /Tab12 -->
+							<!-- Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-3">
+									<label for="name">4.1 Resultados globales:</label>
+								</div>
+
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="facturacionGlobal" required="true" min="1" path="a411"
+											class="form-control" />
+										<span class="input-group-addon">&#8364;</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoTotalGlobal" required="true" min="1" path="a412"
+											class="form-control" />
+										<span class="input-group-addon">&#8364;</span>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoPersonalGlobal" required="true" min="1" path="a413"
+											class="form-control" />
+										<span class="input-group-addon">&#8364;</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="inversionesRealesGlobal" required="true" min="1" path="a414"
+											class="form-control" />
+										<span class="input-group-addon">&#8364;</span>
+									</div>
+								</div>
+							</div>
+							<!-- /Tab12 -->
+							<!-- Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-3">
+									<label for="name">4.2 Resultados en actividades
+										ambientales:</label>
+								</div>
+
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="facturacionAmbiental" path="a421"
+											class="form-control" />
+										<span class="input-group-addon">&#8364;</span>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoTotalAmbiental" path="a422"
+											class="form-control" />
+										<span class="input-group-addon">&#8364;</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoPersonalAmbiental" path="a423"
+											class="form-control" />
+										<span class="input-group-addon">&#8364;</span>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="inversionesRealesAmbiental" path="a424"
+											class="form-control" />
+										<span class="input-group-addon">&#8364;</span>
+									</div>
+								</div>
+
+							</div>
+							<!-- /Tab12 -->
+							<div class="col-lg-12" align="center">
+							<h3 id="errorSumas" hidden="true" style="color: #d9534f">
+							El gasto total debe ser mayor o igual que la suma de gasto de personal e inversiones reales.</h3>
+							<h3 id="errorSumaFacturacion" hidden="true" style="color: #d9534f">
+							Facturación global debe ser mayor o igual que facturación ambiental.</h3>					
+							<h3 id="errorSumaGastoTotal" hidden="true" style="color: #d9534f">
+							Gasto total global debe ser mayor o igual que gasto total ambiental.</h3>					
+							<h3 id="errorSumaGastoPersonal" hidden="true" style="color: #d9534f">
+							Gasto personal global debe ser mayor o igual que gasto total ambiental.</h3>					
+							
+							<h3 id="errorSumaInversionesReales" hidden="true" style="color: #d9534f">
+							Inversiones reales global debe ser mayor o igual que inversiones reales ambiental.</h3>					
+							</div>														
+							<div class="col-lg-12">&nbsp;</div>
+
+							<div class="col-lg-12">
+								<div class="col-lg-8">
+									<label for="name">4.3 Reparto porcentual de los
+										resultados entre las distintas actividades ambientales:</label>
+									<div class="alert alert-success">
+
+										Véase clasificación y definiciones en <a
+											href="front/anexo.pdf" target="_blank"><b>Anexo</b></a>. No
+										anote decimales y compruebe que la suma correspondiente a cada
+										una de las columnas es 100%
+									</div>
+								</div>
+							</div>
+
+							<!-- Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">&nbsp;</div>
+								<div class="col-lg-1">&nbsp;</div>
+
+								<div class="col-lg-2">
+									<div class="form-group">
+										<p align="center">
+											<b>% de facturación / ingresos</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<p align="center">
+											<b>% de Gasto total</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<p align="center">
+											<b>% de Gasto de personal</b>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<p align="center">
+											<b>% de Inversiones reales</b>
+										</p>
+									</div>
+								</div>
+
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+
+							<!-- /Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-2">
+									<label for="name">Educación y sensibilización
+										ambiental:</label>
+								</div>
+							</div>
+							<div class="col-lg-12">&nbsp;</div>
+
+							<!-- Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-3">
+									<p>Educación y formación ambiental</p>
+								</div>
+
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="facturacionEducForm" path="a43011"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoTotalEducForm" path="a43012"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoPersonalEducForm" path="a43013"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="inversionRealEducForm" path="a43014"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+
+							</div>
+							<!-- /Tab12 -->
+
+
+							<!-- Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-3">
+									<p>Actividades asociativas de carácter medioambiental</p>
+								</div>
+
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="facturacionActMed" path="a43021"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoTotalActMed" path="a43022"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoPersonalActMed" path="a43023"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="inversionRealActMed" path="a43024"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+
+							</div>
+							<!-- /Tab12 -->
+
+							<!-- Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-3">
+									<label> Ecoinnovación, investigación y desarrollo en
+										materia ambiental: </label>
+								</div>
+
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="facturacionEcoInvDes" path="a43031"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoTotalEcoInvDes" path="a43032"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoPersonalEcoInvDes" path="a43033"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="inversionRealEcoInvDes" path="a43034"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+
+							</div>
+							<!-- /Tab12 -->
+
+							<div class="col-lg-12">
+								<div class="col-lg-3">
+									<label> Otros (especificar): </label>
+								</div>
+							</div>
+
+
+							<div class="col-lg-12">&nbsp;</div>
+
+
+
+							<div class="col-lg-12">
+								<div class="col-lg-3">
+									<form:textarea id="otros1" path="otros1" class="form-control"
+										maxlength="250" />
+								</div>
+
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="facturacionOtros1" path="a43041"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoTotalOtros1" path="a43042"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoPersonalOtros1" path="a43043"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="inversionRealOtros1" path="a43044"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-lg-12">&nbsp;</div>
+							
+							<div class="col-lg-12">
+								<div class="col-lg-3">
+									<form:textarea id="otros2" path="otros2" class="form-control"
+										maxlength="250" />
+								</div>
+
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="facturacionOtros2" path="a43051"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoTotalOtros2" path="a43052"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="gastoPersonalOtros2" path="a43053"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group input-group">
+										<form:input id="inversionRealOtros2" path="a43054"
+											class="form-control" min="0" max="100" />
+										<span class="input-group-addon">%</span>
+
+									</div>
+								</div>
+							</div>
+							
+							<!-- Tab12 -->
+							<div class="col-lg-12">
+								<div class="col-lg-3"><div class="form-group">
+										<h3 align="center">Totales en actividades ambientales:</h3></div></div>
+
+								<div class="col-lg-2">
+									<div class="form-group">
+										<h3 align="center">
+											<b>100%</b>
+										</h3>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<h3 align="center">
+											<b>100%</b>
+										</h3>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<h3 align="center">
+											<b>100%</b>
+										</h3>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<h3 align="center">
+											<b>100%</b>
+										</h3>
+									</div>
+								</div>
+
+								<div class="col-lg-1">&nbsp;</div>
+							</div>
+
+							<div class="col-lg-12">&nbsp;</div>
+							<div class="col-lg-12">&nbsp;</div>
+
+
+							<!-- Tab12 -->
+							<div class="col-lg-4">&nbsp;</div>
+							<div class="col-lg-2">
+								<security:authorize access="hasAnyRole('CIF2')">
+									<a href="encuesta/cif2/paginaDos.do" class="btn btn-default"
+										role="button">Paso anterior</a>
+								</security:authorize>
+								<security:authorize access="hasAnyRole('ADMIN')">
+									<a
+										href="encuesta/cif2/verPaginaDos.do?tipoCIF2Id=${tipoCIF2Id}"
+										class="btn btn-default" role="button">Paso anterior</a>
+								</security:authorize>
+							</div>
+							<div class="col-lg-2">
+								<button type="submit" class="btn btn-default" name="save">Siguiente
+									paso</button>
+							</div>
+							<div class="col-lg-4">&nbsp;</div>
+							<!-- /Tab12 -->
+
+
+
+
+						</div>
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+	</form:form>
+</div>
+
+<script>
+	function validate3() {
+		res1 = controlSumas();
+
+
+		resTotal = res1;
+		return resTotal;
+	}
+	
+	//Sumas de totales
+	function controlSumas(){
+		res=true;
+		facturacionGlobal = document.getElementById("facturacionGlobal");
+		totalGlobal = document.getElementById("gastoTotalGlobal");
+		personalGlobal = document.getElementById("gastoPersonalGlobal");
+		realesGlobal = document.getElementById("inversionesRealesGlobal");
+		
+		facturacionAmbiental = document.getElementById("facturacionAmbiental");
+		totalAmbiental = document.getElementById("gastoTotalAmbiental");
+		personalAmbiental = document.getElementById("gastoPersonalAmbiental");
+		realesAmbiental = document.getElementById("inversionesRealesAmbiental");
+		
+		if (facturacionGlobal.value.length == 0) {
+			facturacionGlobal.value = 0;
+		}
+		if (facturacionAmbiental.value.length == 0) {
+			facturacionAmbiental.value = 0;
+		}
+		if (totalGlobal.value.length == 0) {
+			totalGlobal.value = 0;
+		}
+		if (personalGlobal.value.length == 0) {
+			personalGlobal.value = 0;
+		}
+		if (realesGlobal.value.length == 0) {
+			realesGlobal.value = 0;
+		}
+		if (totalAmbiental.value.length == 0) {
+			totalAmbiental.value = 0;
+		}
+		if (personalAmbiental.value.length == 0) {
+			personalAmbiental.value = 0;
+		}
+		if (realesAmbiental.value.length == 0) {
+			realesAmbiental.value = 0;
+		}
+		
+		if(parseFloat(totalGlobal.value) < (parseFloat(personalGlobal.value)+parseFloat(realesGlobal.value))){
+			
+			res = false;
+			errorSumas.hidden = false;
+			totalGlobal.focus();
+		}
+		else{
+			errorSumas.hidden = true;
+			
+		}
+		
+		if(parseFloat(totalAmbiental.value) < (parseFloat(personalAmbiental.value)+parseFloat(realesAmbiental.value))){
+			
+			res = false;
+			errorSumas.hidden = false;
+			totalAmbiental.focus();
+		}
+		else{
+			errorSumas.hidden = true;
+			
+		}
+		
+		if(parseFloat(facturacionGlobal.value) < (parseFloat(facturacionAmbiental.value))){
+			
+			res = false;
+			errorSumaFacturacion.hidden = false;
+			facturacionAmbiental.focus();
+		}
+		else{
+			errorSumaFacturacion.hidden = true;
+			
+		}
+		
+		if(parseFloat(totalGlobal.value) < (parseFloat(totalAmbiental.value))){
+			
+			res = false;
+			errorSumaGastoTotal.hidden = false;
+			totalAmbiental.focus();
+		}
+		else{
+			errorSumaGastoTotal.hidden = true;
+			
+		}
+		
+		if(parseFloat(personalGlobal.value) < (parseFloat(personalAmbiental.value))){
+			
+			res = false;
+			errorSumaGastoPersonal.hidden = false;
+			personalAmbiental.focus();
+		}
+		else{
+			errorSumaGastoPersonal.hidden = true;
+			
+		}
+		
+		if(parseFloat(inversionesRealesGlobal.value) < (parseFloat(inversionesRealesAmbiental.value))){
+			
+			res = false;
+			errorSumaInversionesReales.hidden = false;
+			inversionesRealesAmbiental.focus();
+		}
+		else{
+			errorSumaInversionesReales.hidden = true;
+			
+		}
+		
+		return res;
+		
+		
+		
+	}
+</script>

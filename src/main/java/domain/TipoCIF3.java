@@ -1,0 +1,133 @@
+package domain;
+
+import java.util.Date;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
+import javax.validation.Valid;
+
+@Entity
+@Access(AccessType.PROPERTY)
+@Table(indexes = { @Index(columnList = "fechaEnvio") })
+public class TipoCIF3 extends Actor {
+
+	// Atributes------------------------------
+
+	// Relaciones -------------------------------------------
+	private Tipo3FormularioUno formularioUno;
+	private Tipo3FormularioDos formularioDos;
+	private Tipo3FormularioTres formularioTres;
+	private Tipo3FormularioCuatro formularioCuatro;
+	private Boolean terminadaEncuestaTres;
+	private Boolean validado;
+	private Boolean noAmbiental;
+	private Boolean revisado;
+	private Date fechaEnvio;
+	private Date fechaValidada;
+	private String tipo;
+	private String telefonoCIF3;
+
+	@Valid
+	public Tipo3FormularioUno getFormularioUno() {
+		return formularioUno;
+	}
+
+	public void setFormularioUno(Tipo3FormularioUno formularioUno) {
+		this.formularioUno = formularioUno;
+	}
+
+	@Valid
+	public Tipo3FormularioDos getFormularioDos() {
+		return formularioDos;
+	}
+
+	public void setFormularioDos(Tipo3FormularioDos formularioDos) {
+		this.formularioDos = formularioDos;
+	}
+
+	public Tipo3FormularioTres getFormularioTres() {
+		return formularioTres;
+	}
+
+	public void setFormularioTres(Tipo3FormularioTres formularioTres) {
+		this.formularioTres = formularioTres;
+	}
+
+	public Tipo3FormularioCuatro getFormularioCuatro() {
+		return formularioCuatro;
+	}
+
+	public void setFormularioCuatro(Tipo3FormularioCuatro formularioCuatro) {
+		this.formularioCuatro = formularioCuatro;
+	}
+
+
+
+	public Boolean getTerminadaEncuestaTres() {
+		return terminadaEncuestaTres;
+	}
+
+	public void setTerminadaEncuestaTres(Boolean terminadaEncuestaTres) {
+		this.terminadaEncuestaTres = terminadaEncuestaTres;
+	}
+
+	public Boolean getValidado() {
+		return validado;
+	}
+
+	public void setValidado(Boolean validado) {
+		this.validado = validado;
+	}
+
+	public Boolean getNoAmbiental() {
+		return noAmbiental;
+	}
+
+	public void setNoAmbiental(Boolean noAmbiental) {
+		this.noAmbiental = noAmbiental;
+	}
+
+	public Boolean getRevisado() {
+		return revisado;
+	}
+
+	public void setRevisado(Boolean revisado) {
+		this.revisado = revisado;
+	}
+
+	public Date getFechaEnvio() {
+		return fechaEnvio;
+	}
+
+	public void setFechaEnvio(Date fechaEnvio) {
+		this.fechaEnvio = fechaEnvio;
+	}
+
+	public Date getFechaValidada() {
+		return fechaValidada;
+	}
+
+	public void setFechaValidada(Date fechaValidada) {
+		this.fechaValidada = fechaValidada;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getTelefonoCIF3() {
+		return telefonoCIF3;
+	}
+
+	public void setTelefonoCIF3(String telefonoCIF3) {
+		this.telefonoCIF3 = telefonoCIF3;
+	}
+
+}
